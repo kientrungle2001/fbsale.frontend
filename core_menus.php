@@ -48,7 +48,9 @@
     <section class="content">
       <div class="container-fluid">
         
-		<?php require 'inc/user/list.php'; ?>
+		<?php require 'inc/menu/list.php'; ?>
+		
+		<?php require 'inc/menu/add.php'; ?>
 		
       </div><!-- /.container-fluid -->
     </section>

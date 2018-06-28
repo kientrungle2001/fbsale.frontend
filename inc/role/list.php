@@ -1,16 +1,14 @@
 <div class="card card-primary">
 	<div class="card-header">
-	  <h3 class="card-title">Data Table With Full Features</h3>
+	  <h3 class="card-title">Quản trị vai trò</h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
 	  <table id="example1" class="table table-bordered table-striped">
 		<thead>
 		<tr>
-		  <th>Họ và tên</th>
-		  <th>Username</th>
-		  <th>Email</th>
-		  <th>Số điện thoại</th>
+		  <th>Tên vai trò</th>
+		  <th>Tiêu đề</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -19,10 +17,8 @@
 		</tbody>
 		<tfoot>
 		<tr>
-		  <th>Họ và tên</th>
-		  <th>Username</th>
-		  <th>Email</th>
-		  <th>Số điện thoại</th>
+		  <th>Tên vai trò</th>
+		  <th>Tiêu đề</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -44,7 +40,7 @@
   $(function () {
     $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/user/find?where={}",
+		  "url": "http://fbsale.vn:1337/role/find?where={}",
 		  "type": "GET",
 		  "error": function (e) {
 		  },
@@ -56,11 +52,9 @@
         serverSide: true,
 		columns: [
 			{ data: 'name' },
-			{ data: 'username' },
-			{ data: 'email' },
-			{ data: 'phone' },
+			{ data: 'title' },
 			{ data: 'status' },
-			{ data: 'username' }
+			{ data: 'name' }
 		]
 	});
   });
