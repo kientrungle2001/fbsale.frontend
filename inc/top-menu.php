@@ -3,7 +3,7 @@
     
 	<?php require 'top-menu/menu.php';?>
 	<?php // require 'top-menu/search.php';?>
-	<?php //require 'top-menu/right-menu.php';?>
+	<?php require 'top-menu/user.php';?>
     
   </nav>
   <!-- /.navbar -->

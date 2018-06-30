@@ -39,7 +39,7 @@
     min-height: 60px;
 }
 .item-message {
-    font-size: 13px;
+    font-size: 14px;
 }
 .activity-item .right-item {
     float: left;
@@ -208,6 +208,17 @@ textarea {
     line-height: 34px;
     font-size: 13px;
     padding-right: 4px;
+}
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
 }
 </style>
 <div class="position-relative">
@@ -570,10 +581,10 @@ textarea {
 
 				<!-- Tab panes -->
 				<div class="tab-content">
-				  <div class="tab-pane active container" id="custommer">
+				  <div class="tab-pane active container p-2" id="custommer">
 				  	khách hàng
 				  </div>
-				  <div class="tab-pane container" id="order">
+				  <div class="tab-pane container p-2" id="order">
 				  	đơn hàng
 				  </div>
 				</div>
