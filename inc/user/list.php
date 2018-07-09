@@ -44,7 +44,7 @@
   $(function () {
     $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/user/find?where={}",
+		  "url": "http://fbsale.vn:1337/coreusers/find?where={}",
 		  "type": "GET",
 		  "error": function (e) {
 		  },
