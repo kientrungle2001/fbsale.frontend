@@ -33,7 +33,7 @@
     <section class="content">
       <div class="container-fluid">
         
-		<?php require '/inc/post/list.php'; ?>
+		<?php require 'inc/post/list.php'; ?>
 		
       </div><!-- /.container-fluid -->
     </section>
