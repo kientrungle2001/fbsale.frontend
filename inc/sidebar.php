@@ -57,7 +57,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-users"></i>
               <p>
                 Quản lý vai trò
                 <i class="right fa fa-angle-left"></i>
@@ -81,7 +81,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-user-md"></i>
               <p>
                 Quản lý quyền
                 <i class="right fa fa-angle-left"></i>
@@ -105,7 +105,7 @@
 			
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-tags"></i>
               <p>
                 Quản lý nhãn
                 <i class="right fa fa-angle-left"></i>
@@ -129,7 +129,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-cogs"></i>
               <p>
                 Cài đặt
                 <i class="right fa fa-angle-left"></i>
@@ -153,7 +153,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-list"></i>
               <p>
                 Menu
                 <i class="right fa fa-angle-left"></i>
@@ -177,7 +177,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-bars"></i>
               <p>
                 Danh mục
                 <i class="right fa fa-angle-left"></i>
@@ -225,7 +225,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-ticket"></i>
               <p>
                 Quản lý dịch vụ
                 <i class="right fa fa-angle-left"></i>
@@ -249,31 +249,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Quản lý dịch vụ
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách dịch vụ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-cubes"></i>
               <p>
                 Quản lý nhà cung cấp
                 <i class="right fa fa-angle-left"></i>
@@ -297,7 +273,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-motorcycle"></i>
               <p>
                 Quản lý vận chuyển
                 <i class="right fa fa-angle-left"></i>
@@ -321,7 +297,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-sticky-note"></i>
               <p>
                 Quản lý Trang facebook
                 <i class="right fa fa-angle-left"></i>
@@ -345,7 +321,7 @@
 		  
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+              <i class="nav-icon fa fa-inbox"></i>
               <p>
                 Quản lý mẫu tin nhắn
                 <i class="right fa fa-angle-left"></i>
