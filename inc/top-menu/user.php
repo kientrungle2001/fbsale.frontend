@@ -10,9 +10,15 @@
           <div class="dropdown-item">
             Lê Trung Kiên
           </div>
+		  <a href="#" class="dropdown-item">
+            Sửa hồ sơ
+          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             Chọn lại Fanpages
+          </a>
+		  <a href="#" class="dropdown-item">
+            Đổi mật khẩu
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
