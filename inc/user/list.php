@@ -97,31 +97,27 @@
            }
 		});
   }
+  
+	
+	var url = "http://fbsale.vn:1337/coreusers/roles"; // the script where you handle the form input.
+	$.ajax({
+	   type: "GET",
+	   url: url,
+	   success: function(data)
+	   {
+		  data.forEach(function(item,index) {
+			  $('#role_id').append('<option value="'+item.id+'">'+item.name+'</option>');
+		  });
+	   }
+	});
   function addData(){
   	$('#formData').attr('datatype', 'add');
-  	var url = "http://fbsale.vn:1337/coreroles/"; // the script where you handle the form input.
-	$.ajax({
-       type: "POST",
-       url: url,
-       success: function(data)
-       {
-          console.log(data);
-       }
-    });
+  	
   }
   function editData(id){
 
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
-  	var urladd = "http://fbsale.vn:1337/coreroles/"; // the script where you handle the form input.
-	$.ajax({
-       type: "POST",
-       url: urladd,
-       success: function(data)
-       {
-          console.log(data);
-       }
-    });
   	var url = "http://fbsale.vn:1337/coreusers/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "GET",
@@ -134,7 +130,9 @@
 			    }, 2000);
 		    	if(data.status == 1){
 		    		$('#status').attr('checked', true);
-		    	}
+		    	} else {
+					$('#status').attr('checked', false);
+				}
 		    	jQuery.each(data, function(index, item) {
 		            $('#'+index).val(item);
 		        });
