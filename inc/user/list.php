@@ -10,9 +10,9 @@
 		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
-		  <th>Quyền</th>
 		  <th>Email</th>
 		  <th>Số điện thoại</th>
+		  <th>Quyền</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -24,9 +24,9 @@
 		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
-		  <th>Quyền</th>
 		  <th>Email</th>
 		  <th>Số điện thoại</th>
+		  <th>Quyền</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -59,6 +59,9 @@
 			{ data: 'id' },
 			{ data: 'name' },
 			{ data: 'username' },
+			
+			{ data: 'email' },
+			{ data: 'phone' },
 			{ data: function(row, type, val, meta){
 				if(row.role_id != null){
 					return row.role_id.name;
@@ -66,8 +69,6 @@
 					return '';
 				}
 			} },
-			{ data: 'email' },
-			{ data: 'phone' },
 			{ data: function(row, type, val, meta){
 				if(row.status == 1){
 					return '<i class="fa fa-star" style="color: blue; font-size: 120%; cursor: pointer;" onclick="updateStatus(0, '+row.id+');"></i>';
