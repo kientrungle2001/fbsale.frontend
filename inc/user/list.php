@@ -10,6 +10,7 @@
 		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
+		  <th>Quyền</th>
 		  <th>Email</th>
 		  <th>Số điện thoại</th>
 		  <th>Trạng thái</th>
@@ -23,6 +24,7 @@
 		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
+		  <th>Quyền</th>
 		  <th>Email</th>
 		  <th>Số điện thoại</th>
 		  <th>Trạng thái</th>
@@ -57,6 +59,13 @@
 			{ data: 'id' },
 			{ data: 'name' },
 			{ data: 'username' },
+			{ data: function(row, type, val, meta){
+				if(row.role_id != null){
+					return row.role_id.name;
+				}else{
+					return '';
+				}
+			} },
 			{ data: 'email' },
 			{ data: 'phone' },
 			{ data: function(row, type, val, meta){
