@@ -50,6 +50,14 @@
 		</select>
 	  </div>
 	</div>
+	<div class="row">
+		 <div class="form-group col-4">
+			<label>Chọn quyền</label>
+			<select id="role_id" name="role_id" class="form-control">
+			  
+			</select>
+		  </div>
+	</div>
 	  
 	  <div class="form-check">
 		<input id="status" name="status" value="1" type="checkbox" class="form-check-input" id="status">
@@ -67,6 +75,7 @@
 <!-- /.card -->
 </div>
 <script type="text/javascript">
+	
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
@@ -97,6 +106,7 @@
 
 	    e.preventDefault(); // avoid to execute the actual submit of the form.
 	});
+
 
 	
 </script>
