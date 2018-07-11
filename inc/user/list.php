@@ -7,6 +7,7 @@
 	  <table id="example1" class="table table-bordered table-striped">
 		<thead>
 		<tr>
+		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
 		  <th>Email</th>
@@ -19,6 +20,7 @@
 		</tbody>
 		<tfoot>
 		<tr>
+		  <th>ID</th>
 		  <th>Họ và tên</th>
 		  <th>Username</th>
 		  <th>Email</th>
@@ -52,11 +54,19 @@
 		processing: true,
         serverSide: true,
 		columns: [
+			{ data: 'id' },
 			{ data: 'name' },
 			{ data: 'username' },
 			{ data: 'email' },
 			{ data: 'phone' },
-			{ data: 'status' },
+			{ data: function(row, type, val, meta){
+				if(row.status == 1){
+					return '<i class="fa fa-star" style="color: blue; font-size: 120%; cursor: pointer;" onclick="updateStatus(0, '+row.id+');"></i>';
+				}else{
+					return '<i class="fa fa-star" style="color: black; font-size: 100%; cursor: pointer;" onclick="updateStatus(1,'+row.id+');"></i>';
+				}
+				
+			} },
 			{ data : function ( row, type, val, meta ){
 				return '<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>'+' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
 			}},
@@ -65,6 +75,18 @@
 	});
 	
   });
+  function updateStatus(status, id){
+  		var url = "http://fbsale.vn:1337/coreusers/"+id; // the script where you handle the form input.
+	    $.ajax({
+		    type: "PATCH",
+		    url: url,
+		    data: {status, status}, // serializes the form's elements.
+           success: function(data)
+           {
+               fbTable.ajax.reload();
+           }
+		});
+  }
   function addData(){
   	$('#formData').attr('datatype', 'add');
   }
