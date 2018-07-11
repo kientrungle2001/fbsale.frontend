@@ -44,12 +44,9 @@
   $(function () {
     fbTable = $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/coreusers/find?where={}",
-		  "type": "GET",
+		  "url": "http://fbsale.vn:1337/coreusers/datatable",
+		  "type": "POST",
 		  "error": function (e) {
-		  },
-		  "dataSrc": function (d) {
-			 return d
 		  }
 		},
 		processing: true,
