@@ -40,7 +40,7 @@
   $(function () {
     $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/role/find?where={}",
+		  "url": "http://fbsale.vn:1337/coreroles/datatable",
 		  "type": "GET",
 		  "error": function (e) {
 		  },
