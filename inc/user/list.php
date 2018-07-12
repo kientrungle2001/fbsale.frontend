@@ -98,7 +98,7 @@
 		});
   }
   
-	
+	//xu li phan quyền
 	var url = "http://fbsale.vn:1337/coreusers/roles"; // the script where you handle the form input.
 	$.ajax({
 	   type: "GET",
