@@ -15,7 +15,7 @@
 		  </div>
 	  </div>
 	  <div class="form-check">
-		<input name="status" type="checkbox" class="form-check-input" id="status">
+		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
 	  </div>
 	</div>
