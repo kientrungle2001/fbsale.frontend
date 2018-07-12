@@ -53,7 +53,14 @@
 		columns: [
 			{ data: 'id' },
 			{ data: 'name' },
-			{ data: 'color' },
+			{ data: function(row, type, val, meta){
+				if(row.color != ''){
+					return '<span style="height: 34px; display: block; width: 50px; background: #'+row.color+'"></span>';
+				}else{
+					return false;
+				}
+				
+			} },
 			{ data: function(row, type, val, meta){
 				if(row.status == 1){
 					return '<i class="fa fa-star" style="color: blue; font-size: 120%; cursor: pointer;" onclick="updateStatus(0, '+row.id+');"></i>';
