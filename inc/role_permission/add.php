@@ -6,25 +6,28 @@
   </div>
   <!-- /.card-header -->
   <!-- form start -->
-  <form role="form">
+  <form id="formData" role="form">
 	<div class="card-body">
 	  <div class="row">
+
 		  <div class="form-group col-4">
-			<label for="exampleInputEmail1">Tên vai trò</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Họ và tên">
+			<label>Tên vai trò</label>
+			<select id="role_id" name="role_id" class="form-control">
+			  
+			</select>
 		  </div>
 		  
 		  <div class="form-group col-4">
 			<label for="exampleInputEmail1">Controller</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên đăng nhập">
+			<input type="text" name="controller" class="form-control" id="controller" placeholder="Controller">
 		  </div>
 		  <div class="form-group col-4">
 			<label for="exampleInputEmail1">Action</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên đăng nhập">
+			<input type="text" name="action" class="form-control" id="action" placeholder="Action">
 		  </div>
 	  </div>
 	  <div class="form-check">
-		<input type="checkbox" class="form-check-input" id="status">
+		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
 	  </div>
 	</div>
@@ -38,3 +41,39 @@
 </div>
 <!-- /.card -->
 </div>
+<script type="text/javascript">
+	
+	$("#formData").submit(function(e) {
+		$('#collapseAdd').removeClass('show');
+		if($(this).attr('datatype') == 'add'){
+			var url = "http://fbsale.vn:1337/corerolepermissions/"; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	              fbTable.ajax.reload();
+	           }
+	        });
+		}else if($(this).attr('datatype') == 'edit'){
+			var id = $(this).attr('dataid');
+			var url = "http://fbsale.vn:1337/corerolepermissions/"+id; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "PATCH",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	               fbTable.ajax.reload();
+	           }
+	        });
+		}
+	   
+
+	    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+
+	
+</script>

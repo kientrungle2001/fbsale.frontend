@@ -6,32 +6,32 @@
   </div>
   <!-- /.card-header -->
   <!-- form start -->
-  <form role="form">
+  <form id="formData" role="form">
 	<div class="card-body">
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên menu</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Họ và tên">
+			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Đường dẫn</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên đăng nhập">
+			<input name="url" type="text" class="form-control" id="url" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Controller</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Họ và tên">
+			<input name="controller" type="text" class="form-control" id="controller" placeholder="Họ và tên">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Action</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên đăng nhập">
+			<input type="text" name="action" class="form-control" id="action" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="form-check">
-		<input type="checkbox" class="form-check-input" id="status">
+		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
 	  </div>
 	</div>
@@ -45,3 +45,40 @@
 </div>
 <!-- /.card -->
 </div>
+
+<script type="text/javascript">
+	
+	$("#formData").submit(function(e) {
+		$('#collapseAdd').removeClass('show');
+		if($(this).attr('datatype') == 'add'){
+			var url = "http://fbsale.vn:1337/coremenus/"; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	              fbTable.ajax.reload();
+	           }
+	        });
+		}else if($(this).attr('datatype') == 'edit'){
+			var id = $(this).attr('dataid');
+			var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "PATCH",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	               fbTable.ajax.reload();
+	           }
+	        });
+		}
+	   
+
+	    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+
+	
+</script>
