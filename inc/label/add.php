@@ -16,7 +16,7 @@
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Màu sắc</label>
-			<input name="color" type="text" class="form-control jscolor" id="color" value="ab2567"/>
+			<input name="color" type="text" class="form-control jscolor" id="color" value=""/>
 		  </div>
 	  </div>
 	  <div class="form-check">
