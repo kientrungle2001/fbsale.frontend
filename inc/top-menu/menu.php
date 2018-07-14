@@ -7,7 +7,7 @@
         <a href="index3.html" class="nav-link">Trang tổng quan</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Tin nhắn</a>
+        <a href="/social_posts.php" class="nav-link">Tin nhắn</a>
       </li>
 	  <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Đơn hàng</a>
