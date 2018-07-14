@@ -2,25 +2,25 @@
 <!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-	<h3 class="card-title">Thêm thiết lập</h3>
+	<h3 class="card-title">Thêm Nhãn</h3>
   </div>
   <!-- /.card-header -->
   <!-- form start -->
-  <form role="form">
+  <form id="formData" role="form">
 	<div class="card-body">
 	  <div class="row">
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Khóa</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Họ và tên">
+			<label for="key">Khóa</label>
+			<input name="key" type="text" class="form-control" id="key" placeholder="Khóa">
 		  </div>
 		  
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Giá trị</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên đăng nhập">
+			<label for="value">Giá trị</label>
+			<input name="value" type="text" class="form-control" id="value" value=""/>
 		  </div>
 	  </div>
 	  <div class="form-check">
-		<input type="checkbox" class="form-check-input" id="status">
+		<input value="1" name="status" type="checkbox" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
 	  </div>
 	</div>
@@ -34,3 +34,40 @@
 </div>
 <!-- /.card -->
 </div>
+
+<script type="text/javascript">
+	
+	$("#formData").submit(function(e) {
+		$('#collapseAdd').removeClass('show');
+		if($(this).attr('datatype') == 'add'){
+			var url = "http://fbsale.vn:1337/coresettings/"; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	              fbTable.ajax.reload();
+	           }
+	        });
+		}else if($(this).attr('datatype') == 'edit'){
+			var id = $(this).attr('dataid');
+			var url = "http://fbsale.vn:1337/coresettings/"+id; // the script where you handle the form input.
+	   		 $.ajax({
+	           type: "PATCH",
+	           url: url,
+	           data: $("#formData").serialize(), // serializes the form's elements.
+	           success: function(data)
+	           {
+	               fbTable.ajax.reload();
+	           }
+	        });
+		}
+	   
+
+	    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+
+	
+</script>

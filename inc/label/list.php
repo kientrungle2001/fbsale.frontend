@@ -116,7 +116,7 @@
 		    	jQuery.each(data, function(index, item) {
 		            $('#'+index).val(item);
 		        });
-
+				$('#color')[0].jscolor.fromString(data.color);
 		    }
 		});
   }
