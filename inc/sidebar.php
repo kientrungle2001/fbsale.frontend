@@ -138,10 +138,28 @@
                   <p>Quản lí học sinh</p>
                 </a>
                </li>
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
+               <li class="nav-item">
+                  <a href="/echommerce_providers.php" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Danh sách dịch vụ</p>
+                    <p>Quản lí nhà cung cấp</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ecommerce_product_categories.php" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Danh mục sản phẩm</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ecommerce_products.php" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Quản lí sản phẩm</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ecommerce_product_options.php" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Thuộc tính sản phẩm</p>
                   </a>
                 </li>
                   
@@ -158,22 +176,23 @@
             </a>
             <ul class="nav nav-treeview">
                <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/ecommerce_shippers.php" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Quản lí vận chuyển</p>
                 </a>
               </li>
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Quản lí nhà cung cấp</p>
-                  </a>
-                </li>
+              <li class="nav-item">
+                <a href="/ecommerce_address.php" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Quản lí vận chuyển</p>
+                </a>
+              </li>
+                
             </ul>
           </li>                
 		  
   		  <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
+          <a href="/social_pages.php" class="nav-link">
             <i class="nav-icon fa fa-sticky-note"></i>
             <p>
               Quản lý Trang facebook
