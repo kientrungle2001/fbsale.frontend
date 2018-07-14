@@ -30,319 +30,158 @@
               <p>Trang tổng quan</p>
             </a>
           </li>
-          
-		  <li class="nav-item has-treeview">
-            <a href="/core_users.php" class="nav-link">
+
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                Quản lý người dùng
+                Hệ thống
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/core_users.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách người dùng</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/core_users.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="/core_roles.php" class="nav-link">
-              <i class="nav-icon fa fa-users"></i>
-              <p>
-                Quản lý vai trò
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_roles.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách vai trò</p>
-                </a>
+                 <a href="/core_users.php" class="nav-link">
+                    <i class="nav-icon fa fa-user"></i>
+                    <p>
+                      Quản lý người dùng
+                    </p>
+                  </a>
               </li>
               <li class="nav-item">
                 <a href="/core_roles.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="/core_user_roles.php" class="nav-link">
-              <i class="nav-icon fa fa-user-md"></i>
-              <p>
-                Quản lý quyền
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_role_permissions.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách quyền</p>
+                  <i class="nav-icon fa fa-users"></i>
+                  <p>
+                    Quản lý vai trò
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/core_role_permissions.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-			
-		  <li class="nav-item has-treeview">
-            <a href="/core_labels.php" class="nav-link">
-              <i class="nav-icon fa fa-tags"></i>
-              <p>
-                Quản lý nhãn
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_labels.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách nhãn</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/core_labels.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="/core_settings.php" class="nav-link">
-              <i class="nav-icon fa fa-cogs"></i>
-              <p>
-                Cài đặt
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_settings.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách cài đặt</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/core_settings.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="/core_menus.php" class="nav-link">
-              <i class="nav-icon fa fa-list"></i>
-              <p>
-                Menu
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_menus.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách Menu</p>
+                <a href="/core_user_roles.php" class="nav-link">
+                  <i class="nav-icon fa fa-user-md"></i>
+                  <p>
+                    Quản lý quyền
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/core_menus.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
+                  <i class="nav-icon fa fa-list"></i>
+                  <p>
+                    Menu
+                  </p>
                 </a>
+               
               </li>
             </ul>
           </li>
+     
+		     
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+             <i class="nav-icon fa fa-cogs"></i>
+              <p>
+                Cài đặt chung
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+               <li class="nav-item">
+                  <a href="/core_settings.php" class="nav-link">
+                    <i class="nav-icon fa fa-cogs"></i>
+                    <p>
+                      Cài đặt
+                    </p>
+                  </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="/core_labels.php" class="nav-link">
+                      <i class="nav-icon fa fa-tags"></i>
+                      <p>
+                        Quản lý nhãn
+                      </p>
+                    </a>
+                    
+                  </li>
+                  <li class="nav-item">
+                    <a href="./index.html" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>Quản lí mẫu tin nhắn</p>
+                    </a>
+                  </li>
+            </ul>
+          </li>      
 		  
-		  <li class="nav-item has-treeview">
+		  <li class="nav-item">
             <a href="/core_categories.php" class="nav-link">
               <i class="nav-icon fa fa-bars"></i>
               <p>
                 Danh mục
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/core_categories.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách danh mục</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/core_categories.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
+            
           </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="/ecommerce_customers.php" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+
+       <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+             <i class="nav-icon fa fa-ticket"></i>
               <p>
-                Quản lý học sinh
+                Thương mại
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+               <li class="nav-item">
                 <a href="/ecommerce_customers.php" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách học sinh</p>
+                  <p>Quản lí học sinh</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="/ecommerce_customers.php" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
+               </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Danh sách dịch vụ</p>
+                  </a>
+                </li>
+                  
             </ul>
           </li>
-		  
-		  <li class="nav-item has-treeview">
+
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-ticket"></i>
+             <i class="nav-icon fa fa-motorcycle"></i>
               <p>
-                Quản lý dịch vụ
+                Vận chuyển
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách dịch vụ</p>
+                  <p>Quản lí vận chuyển</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Quản lí nhà cung cấp</p>
+                  </a>
+                </li>
             </ul>
-          </li>
+          </li>                
 		  
-		  <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-cubes"></i>
-              <p>
-                Quản lý nhà cung cấp
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách nhà cung cấp</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+  		  <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-sticky-note"></i>
+            <p>
+              Quản lý Trang facebook
+            </p>
+          </a>
+          
+        </li>
 		  
-		  <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-motorcycle"></i>
-              <p>
-                Quản lý vận chuyển
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách công ty vận chuyển</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-sticky-note"></i>
-              <p>
-                Quản lý Trang facebook
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách Trang facebook</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		  
-		  <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-inbox"></i>
-              <p>
-                Quản lý mẫu tin nhắn
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Danh sách mẫu tin nhắn</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Thêm mới</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-		
 		</ul>
       </nav>
       <!-- /.sidebar-menu -->
