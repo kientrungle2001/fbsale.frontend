@@ -184,7 +184,7 @@
               <li class="nav-item">
                 <a href="/ecommerce_address.php" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Quản lí vận chuyển</p>
+                  <p>Địa chỉ</p>
                 </a>
               </li>
                 
