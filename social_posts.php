@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="fbSaleApp" ng-controller="PostController">
 <head>
     <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Data Tables</title>
+  <title>{{title}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/assets/css/post.css">
+  
 </head>
 
 <body class="hold-transition sidebar-mini sidebar-collapse">
@@ -32,7 +36,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        
 		<?php require 'inc/post/list.php'; ?>
 		
       </div><!-- /.container-fluid -->
@@ -58,6 +61,9 @@
 
 <!-- jQuery -->
 <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<script>
+	$.noConflict();
+</script>
 <!-- Bootstrap 4 -->
 <script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
@@ -72,15 +78,21 @@
 <script src="/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" integrity="sha256-ruP2+uorUblSeg7Tozk75u8TaSUKRCZVvNV0zRGxkRQ=" crossorigin="anonymous"></script>
+
+<!-- FB Sale App -->
+<script src="/assets/angular/app.js"></script>
+
 <!-- page script -->
 <style type="text/css">
   .ml0{margin-left: 0px !important;}
 </style>
 <script>
+(function($) {
   $(function () {
-    $("#example1").DataTable({
-  		ajax: 'http://fbsale.vn:1337/user/find'
-  	});
     
     $('[data-toggle="tooltip"]').tooltip()
 
@@ -102,6 +114,7 @@
     });
     
   });
+})(jQuery);
 </script>
 </body>
 </html>
