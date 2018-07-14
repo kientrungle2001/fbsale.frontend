@@ -133,7 +133,7 @@
             </a>
             <ul class="nav nav-treeview">
                <li class="nav-item">
-                <a href="/ecommerce_customers.php" class="nav-link">
+                <a href="/ecommerce_custommers.php" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Quản lí học sinh</p>
                 </a>
@@ -142,12 +142,6 @@
                   <a href="/ecommerce_providers.php" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>Quản lí nhà cung cấp</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/ecommerce_product_categories.php" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Danh mục sản phẩm</p>
                   </a>
                 </li>
                 <li class="nav-item">

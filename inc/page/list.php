@@ -1,6 +1,6 @@
 <div class="card card-primary">
 	<div class="card-header">
-	  <h3 class="card-title">Quản trị menu</h3>
+	  <h3 class="card-title">Quản trị page</h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
@@ -8,10 +8,9 @@
 		<thead>
 		<tr>
 		  <th>ID</th>
-		  <th>Tiêu đề</th>
-		  <th>Đường dẫn</th>
-		  <th>Controller</th>
-		  <th>Action</th>
+		  <th>Tên</th>
+		  <th>Facebook id</th>
+		  <th>Page id</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -21,10 +20,9 @@
 		<tfoot>
 		<tr>
 		 <th>ID</th>
-		  <th>Tiêu đề</th>
-		  <th>Đường dẫn</th>
-		  <th>Controller</th>
-		  <th>Action</th>
+		  <th>Tên</th>
+		  <th>Facebook id</th>
+		  <th>Page id</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -46,7 +44,7 @@
   $(function () {
     fbTable = $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/coremenus/datatable",
+		  "url": "http://fbsale.vn:1337/socialpages/datatable",
 		  "type": "POST",
 		  "error": function (e) {
 		  },
@@ -57,10 +55,8 @@
 		columns: [
 			{ data: 'id' },
 			{ data: 'name' },
-			{data: 'url'},
-			{data: 'controller'},
-			{data: 'action'},
-			
+			{data: 'facebook_id'},
+			{data: 'page_id'},
 			{ data: function(row, type, val, meta){
 				if(row.status == 1){
 					return '<i class="fa fa-star" style="color: blue; font-size: 120%; cursor: pointer;" onclick="updateStatus(0, '+row.id+');"></i>';
@@ -77,7 +73,7 @@
   });
 
   function updateStatus(status, id){
-  		var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+  		var url = "http://fbsale.vn:1337/socialpages/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "PATCH",
 		    url: url,
@@ -98,7 +94,7 @@
 
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
-  	var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+  	var url = "http://fbsale.vn:1337/socialpages/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "GET",
 		    url: url,
@@ -122,7 +118,7 @@
   }
   function deleteData(id){
   	if(confirm('Bạn có muốn xóa không?')){
-	  	var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+	  	var url = "http://fbsale.vn:1337/socialpages/"+id; // the script where you handle the form input.
 
 	    $.ajax({
 		    type: "DELETE",

@@ -10,26 +10,13 @@
 	<div class="card-body">
 	  <div class="row">
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Tên menu</label>
+			<label for="exampleInputEmail1">Tên nhà cung cấp</label>
 			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
 		  </div>
 		  
-		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Đường dẫn</label>
-			<input name="url" type="text" class="form-control" id="url" placeholder="Tên đăng nhập">
-		  </div>
+		 
 	  </div>
-	  <div class="row">
-		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Controller</label>
-			<input name="controller" type="text" class="form-control" id="controller" placeholder="Họ và tên">
-		  </div>
-		  
-		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Action</label>
-			<input type="text" name="action" class="form-control" id="action" placeholder="Tên đăng nhập">
-		  </div>
-	  </div>
+	  
 	  <div class="form-check">
 		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
@@ -51,7 +38,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/coremenus/"; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceproviders/"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -63,7 +50,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceproviders/"+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "PATCH",
 	           url: url,
