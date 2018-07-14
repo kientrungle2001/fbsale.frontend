@@ -51,7 +51,7 @@
 		<?php require 'inc/address/list.php'; ?>
 		
 		<?php require 'inc/address/add.php'; ?>
-		
+		 
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

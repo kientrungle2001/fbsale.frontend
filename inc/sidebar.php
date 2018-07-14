@@ -139,7 +139,7 @@
                 </a>
                </li>
                <li class="nav-item">
-                  <a href="/echommerce_providers.php" class="nav-link">
+                  <a href="/ecommerce_providers.php" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>Quản lí nhà cung cấp</p>
                   </a>
