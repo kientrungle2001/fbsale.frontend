@@ -57,7 +57,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/core_user_roles.php" class="nav-link">
+                <a href="/core_role_permissions.php" class="nav-link">
                   <i class="nav-icon fa fa-user-md"></i>
                   <p>
                     Quản lý quyền
