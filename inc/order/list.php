@@ -1,6 +1,6 @@
 <div class="card card-primary">
 	<div class="card-header">
-	  <h3 class="card-title">Quản trị menu</h3>
+	  <h3 class="card-title">Quản trị đơn hàng</h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
@@ -8,10 +8,10 @@
 		<thead>
 		<tr>
 		  <th>ID</th>
-		  <th>Tiêu đề</th>
-		  <th>Đường dẫn</th>
-		  <th>Controller</th>
-		  <th>Action</th>
+		  <th>Khách hàng</th>
+		  <th>Email</th>
+		  <th>Phone</th>
+		  <th>Tổng tiền</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -20,11 +20,11 @@
 		</tbody>
 		<tfoot>
 		<tr>
-		 <th>ID</th>
-		  <th>Tiêu đề</th>
-		  <th>Đường dẫn</th>
-		  <th>Controller</th>
-		  <th>Action</th>
+		  <th>ID</th>
+		  <th>Khách hàng</th>
+		  <th>Email</th>
+		  <th>Phone</th>
+		  <th>Tổng tiền</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -46,7 +46,7 @@
   $(function () {
     fbTable = $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/coremenus/datatable",
+		  "url": "http://fbsale.vn:1337/ecommerceorders/datatable",
 		  "type": "POST",
 		  "error": function (e) {
 		  },
@@ -56,10 +56,10 @@
         serverSide: true,
 		columns: [
 			{ data: 'id' },
-			{ data: 'name' },
-			{data: 'url'},
-			{data: 'controller'},
-			{data: 'action'},
+			{ data: 'custommer_name' },
+			{data: 'custommer_email'},
+			{data: 'custommer_phone'},
+			{data: 'total'},
 			
 			{ data: function(row, type, val, meta){
 				if(row.status == 1){
@@ -77,7 +77,7 @@
   });
 
   function updateStatus(status, id){
-  		var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+  		var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "PATCH",
 		    url: url,
@@ -98,7 +98,7 @@
 
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
-  	var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+  	var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "GET",
 		    url: url,
@@ -122,7 +122,7 @@
   }
   function deleteData(id){
   	if(confirm('Bạn có muốn xóa không?')){
-	  	var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+	  	var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
 
 	    $.ajax({
 		    type: "DELETE",

@@ -2,7 +2,7 @@
 <!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-	<h3 class="card-title">Thêm menu</h3>
+	<h3 class="card-title">Thêm đơn hàng</h3>
   </div>
   <!-- /.card-header -->
   <!-- form start -->
@@ -10,24 +10,24 @@
 	<div class="card-body">
 	  <div class="row">
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Tên menu</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
+			<label for="exampleInputEmail1">Khách hàng</label>
+			<input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Khách hàng">
 		  </div>
 		  
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Đường dẫn</label>
-			<input name="url" type="text" class="form-control" id="url" placeholder="Tên đăng nhập">
+			<label for="exampleInputEmail1">Email</label>
+			<input name="custommer_email" type="email" class="form-control" id="custommer_email" placeholder="Email">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Controller</label>
-			<input name="controller" type="text" class="form-control" id="controller" placeholder="Họ và tên">
+			<label for="exampleInputEmail1">Phone</label>
+			<input name="custommer_phone" type="text" class="form-control" id="custommer_phone" placeholder="Phone">
 		  </div>
 		  
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Action</label>
-			<input type="text" name="action" class="form-control" id="action" placeholder="Tên đăng nhập">
+			<label for="exampleInputEmail1">Tông tiền</label>
+			<input type="text" name="total" class="form-control" id="total" placeholder="Toongr tiền">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -51,7 +51,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/coremenus/"; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceorders/"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -63,7 +63,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/coremenus/"+id; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "PATCH",
 	           url: url,
