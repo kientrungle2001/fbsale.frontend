@@ -26,7 +26,7 @@
 
 	<div class="card-footer">
 	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
-	  <button type="submit" class="btn btn-danger pull-right">Đóng</button>
+	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>
 </div>
@@ -34,7 +34,10 @@
 </div>
 
 <script type="text/javascript">
-	
+	function closeForm(){
+		$('#collapseAdd').removeClass('show');
+		return false;
+	}
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){

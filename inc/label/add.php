@@ -2,7 +2,7 @@
 <!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-	<h3 id="btn-title" class="card-title">Thêm Nhãn</h3>
+	<h3 id="btn-title" class="card-title">Thêm mới</h3>
   </div>
   <!-- /.card-header -->
   <!-- form start -->
@@ -28,7 +28,7 @@
 
 	<div class="card-footer">
 	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
-	  <button type="submit" class="btn btn-danger pull-right">Đóng</button>
+	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>
 </div>
@@ -36,7 +36,10 @@
 </div>
 
 <script type="text/javascript">
-	
+	function closeForm(){
+		$('#collapseAdd').removeClass('show');
+		return false;
+	}
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){

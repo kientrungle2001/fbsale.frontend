@@ -105,7 +105,7 @@
                     
                   </li>
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                    <a href="/social_post_templates.php" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>Quản lí mẫu tin nhắn</p>
                     </a>
