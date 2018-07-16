@@ -2,7 +2,7 @@
 <!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-	<h3 class="card-title">Thêm shipper</h3>
+	<h3 id="btn-title" class="card-title">Thêm shipper</h3>
   </div>
   <!-- /.card-header -->
   <!-- form start -->
@@ -31,7 +31,7 @@
 		  </div>
 	  </div>
 	  <div class="form-check">
-		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
+		<input id="btn-submit" name="status" type="checkbox" value="1" class="form-check-input" id="status">
 		<label class="form-check-label" for="status">Hoạt động</label>
 	  </div>
 	</div>

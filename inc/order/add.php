@@ -2,7 +2,7 @@
 <!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-	<h3 class="card-title">Thêm đơn hàng</h3>
+	<h3 id="btn-title" class="card-title">Thêm đơn hàng</h3>
   </div>
   <!-- /.card-header -->
   <!-- form start -->
@@ -38,7 +38,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
 	  <button type="submit" class="btn btn-danger pull-right">Đóng</button>
 	</div>
   </form>

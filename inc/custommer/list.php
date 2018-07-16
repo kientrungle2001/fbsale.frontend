@@ -92,9 +92,12 @@
 	
   function addData(){
   	$('#formData').attr('datatype', 'add');
-  	
+  	$('#btn-title').text('Thêm mới');
+  	$('#btn-submit').text('Thêm mới');
   }
   function editData(id){
+  	$('#btn-title').text('Sửa bản ghi');
+  	$('#btn-submit').text('Cập nhật');
 
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
