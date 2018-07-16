@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<?php require_once 'bootstrap.php'; ?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -29,7 +28,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Đăng nhập để quản lý</p>
 
-      <form action="/AdminLTE/index2.html" method="post">
+      <form action="<?php echo FBSALE_API_URL . '/userLogin'; ?>" method="post">
         <div class="form-group has-feedback">
           <input name="username" type="text" class="form-control" placeholder="Tên đăng nhập">
           <span class="fa fa-envelope form-control-feedback hide"></span>
@@ -56,7 +55,7 @@
 
       <div class="social-auth-links text-center mb-3">
         <p>- HOẶC -</p>
-        <a href="#" class="btn btn-block btn-primary">
+        <a href="<?php echo FBSALE_API_URL . '/auth/facebook'; ?>" class="btn btn-block btn-primary">
           <i class="fa fa-facebook mr-2"></i> Đăng nhập bằng Facebook
         </a>
         <a href="#" class="btn btn-block btn-danger hide">

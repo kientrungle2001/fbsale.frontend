@@ -1,3 +1,7 @@
+<?php 
+if(isset($_SESSION['user'])):
+	$user = $_SESSION['user'];
+?>
 <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
@@ -8,13 +12,13 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-item">
-            Lê Trung Kiên
+            <?php echo $user['name']?>
           </div>
 		  <a href="#" class="dropdown-item">
             Sửa hồ sơ
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="/social_pages_select.php" class="dropdown-item">
             Chọn lại Fanpages
           </a>
 		  <a href="#" class="dropdown-item">
@@ -29,3 +33,4 @@
       </li>
       
     </ul>
+<?php endif; ?>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php require_once 'bootstrap.php'?><!DOCTYPE html>
 <html ng-app="fbSaleApp" ng-controller="PostController">
 <head>
     <meta charset="utf-8">
@@ -37,7 +37,6 @@
     <section class="content">
       <div class="container-fluid">
 		<?php require 'inc/post/list.php'; ?>
-		
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -114,7 +113,25 @@
     });
     
   });
+  
 })(jQuery);
+
+setInteval(function() {
+  $.ajax({
+	  url: '<?php echo FBSALE_API_URL?>/socialposts/cron',
+	  type: 'POST',
+	  data: {
+		  facebook_id: <?php echo $user['facebook_id']?>,
+		  facebook_token: <?php echo $user['token']?>,
+		  facebook_page_ids: <?php echo $facebook_page_ids?>,
+		  facebook_page_tokens: <?php echo $facebook_page_tokens?>
+	  },
+	  success: function(resp) {
+		  console.log('Đã tải dữ liệu về database');
+	  }
+  });
+}, 10000);
+  
 </script>
 </body>
 </html>
