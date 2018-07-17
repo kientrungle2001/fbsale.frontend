@@ -13,16 +13,16 @@
 			<label for="exampleInputEmail1">Tên</label>
 			<input name="name" type="text" class="form-control" id="name" placeholder="Nhãn">
 		  </div>
-		  
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Nội dung</label>
-			<input name="content" type="text" class="form-control" id="content" value=""/>
-		  </div>
-	  </div>
-	  <div class="row">
-	  	<div class="form-group col-6">
 			<label for="exampleInputEmail1">Type</label>
 			<input name="type" type="text" class="form-control" id="type" value=""/>
+		  </div>
+		  
+	  </div>
+	  <div class="row">
+	  	<div class="form-group col-12">
+			<label for="exampleInputEmail1">Nội dung</label>
+			<textarea name="content" class="form-control tinymce" id="content"></textarea>
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -49,7 +49,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/corelabels/"; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/socialposttemplates/"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -61,7 +61,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/corelabels/"+id; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/socialposttemplates/"+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "PATCH",
 	           url: url,

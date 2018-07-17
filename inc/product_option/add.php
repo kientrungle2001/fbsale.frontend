@@ -8,6 +8,15 @@
   <!-- form start -->
   <form id="formData" role="form">
 	<div class="card-body">
+	  	<div class="row">
+		 <div class="form-group col-4">
+			<label>Chọn Sản phẩm</label>
+			<select id="product_id" name="product_id" class="form-control">
+			  
+			</select>
+		  </div>
+		</div>
+
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên</label>

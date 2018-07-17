@@ -8,6 +8,7 @@
 		<thead>
 		<tr>
 		  <th>ID</th>
+		  <th>Sản phẩm</th>
 		  <th>Tên</th>
 		  <th>Giá</th>
 		  <th>Trạng thái</th>
@@ -19,6 +20,7 @@
 		<tfoot>
 		<tr>
 		 <th>ID</th>
+		 <th>Sản phẩm</th>
 		  <th>Tên</th>
 		  <th>Giá</th>
 		  <th>Trạng thái</th>
@@ -40,6 +42,20 @@
 <!-- page script -->
 <script>
   $(function () {
+
+  	//get products
+	var url = "http://fbsale.vn:1337/ecommerceproductoptions/products"; // the script where you handle the form input.
+	$.ajax({
+	   type: "GET",
+	   url: url,
+	   success: function(data)
+	   {
+		  data.forEach(function(item,index) {
+			  $('#product_id').append('<option value="'+item.id+'">'+item.name+'</option>');
+		  });
+	   }
+	});
+
     fbTable = $("#example1").DataTable({
 		ajax: {
 		  "url": "http://fbsale.vn:1337/ecommerceproductoptions/datatable",
@@ -52,6 +68,13 @@
         serverSide: true,
 		columns: [
 			{ data: 'id' },
+			{ data: function(row, type, val, meta){
+				if(row.product_id != null){
+					return row.product_id.name;
+				}else{
+					return '';
+				}
+			} },
 			{ data: 'name' },
 			{data: 'price'},
 			{ data: function(row, type, val, meta){
@@ -112,6 +135,9 @@
 		    	jQuery.each(data, function(index, item) {
 		            $('#'+index).val(item);
 		        });
+		        if(data.product_id.id != ''){
+					$('#product_id').val(data.product_id.id);
+		    	}
 
 		    }
 		});
