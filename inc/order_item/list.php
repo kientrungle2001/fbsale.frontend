@@ -44,30 +44,6 @@
 <!-- page script -->
 <script>
   $(function () {
-  	//get products
-	var url = "http://fbsale.vn:1337/ecommerceorders/shippers"; // the script where you handle the form input.
-	$.ajax({
-	   type: "GET",
-	   url: url,
-	   success: function(data)
-	   {
-		  data.forEach(function(item,index) {
-			  $('#shipper_id').append('<option value="'+item.id+'">'+item.name+'</option>');
-		  });
-	   }
-	});
-	//get products
-	var url = "http://fbsale.vn:1337/ecommerceorders/custommers"; // the script where you handle the form input.
-	$.ajax({
-	   type: "GET",
-	   url: url,
-	   success: function(data)
-	   {
-		  data.forEach(function(item,index) {
-			  $('#custommer_id').append('<option value="'+item.id+'">'+item.name+'</option>');
-		  });
-	   }
-	});
     fbTable = $("#example1").DataTable({
 		ajax: {
 		  "url": "http://fbsale.vn:1337/ecommerceorders/datatable",
@@ -94,7 +70,7 @@
 				
 			} },
 			{ data : function ( row, type, val, meta ){
-				return '<a class="btn btn-primary" href="/ecommerce_order_items.php?orderId='+row.id+'"><i class="fa fa-eye"></i></a> '+'<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>' +' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
+				return '<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>'+' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
 			}},
 		]
 	});
@@ -142,12 +118,6 @@
 		    	jQuery.each(data, function(index, item) {
 		            $('#'+index).val(item);
 		        });
-		        if(data.custommer_id.id != ''){
-					$('#custommer_id').val(data.custommer_id.id);
-		    	}
-		    	if(data.shipper_id.id != ''){
-					$('#shipper_id').val(data.shipper_id.id);
-		    	}
 
 		    }
 		});

@@ -8,17 +8,31 @@
   <!-- form start -->
   <form id="formData" role="form">
 	<div class="card-body">
-	  <div class="row">
+		<div class="row">
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Khách hàng</label>
-			<input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Khách hàng">
+			<label>Chọn khách hàng</label>
+			<select id="custommer_id" name="custommer_id" class="form-control">
+			  
+			</select>
+		  </div>
+		   <div class="form-group col-6">
+			<label>Chọn shipper</label>
+			<select id="shipper_id" name="shipper_id" class="form-control">
+			  
+			</select>
+		  </div>
+		</div>
+	    <div class="row">
+		  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Tên khách hàng</label>
+			<input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Tên khách hàng">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Email</label>
 			<input name="custommer_email" type="email" class="form-control" id="custommer_email" placeholder="Email">
 		  </div>
-	  </div>
+	    </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Phone</label>
@@ -26,9 +40,74 @@
 		  </div>
 		  
 		  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Tông tiền</label>
-			<input type="text" name="total" class="form-control" id="total" placeholder="Toongr tiền">
+			<label for="exampleInputEmail1">Địa chỉ</label>
+			<input type="text" name="custommer_address" class="form-control" id="custommer_address" placeholder="Địa chỉ">
 		  </div>
+	  </div>
+	  <div id="product" class="row">
+	  	  	<div class="form-group col-4">
+				<label>Chọn sản phẩm</label>
+				<select id="product_id0" name="product_id[]" class="form-control">
+			  
+				</select>
+		  	</div>
+		   <div class="form-group col-4">
+				<label>Chọn thuộc tính sản phẩm</label>
+				<select id="product_option_id0" name="product_option_id[]" class="form-control">
+				  
+				</select>
+		  	</div>
+		  	<div class="form-group col-3">
+				<label>Số lượng</label>
+				<input id="quantity0" name="quantity[]" class="form-control" />
+		  	</div>
+		  	<div class="form-group col-1">
+		  		<label>&nbsp;</label>
+		  		<div>
+					<div class="btn  btn-primary"><i class="fa fa-plus-circle"></i></div>
+		  		</div>
+		  	</div>
+	  </div>
+	   <div class="row">
+	   	  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Giảm giá</label>
+			<input name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
+		  </div>
+		  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Tổng tiền trước giảm giá</label>
+			<input type="text" name="total_before_discount" value="0" class="form-control" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
+		  </div>
+		  
+	  </div>
+	  <div class="row">
+	   	  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Thuế</label>
+			<input name="tax" type="text" class="form-control" value="0" id="tax" placeholder="Thuế">
+		  </div>
+		  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Tổng tiền trước thuế</label>
+			<input type="text" name="total_before_tax" class="form-control" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
+		  </div>
+		  
+	  </div>
+	  <div class="row">
+	   	  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Tổng tiền</label>
+			<input name="total" type="text" class="form-control" id="total" value="0" placeholder="Tổng tiền">
+		  </div>
+		  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Trạng thái đơn hàng</label>
+			<select id="state" name="state" class="form-control">
+			  <option value="received">Đã nhận</option>
+			  <option value="processing">Đang xử lí</option>
+			  <option value="shipping">Đang vận chuyển</option>
+			  <option value="waitpay">Chờ thanh toán</option>
+			  <option value="completed">Thành công</option>
+			  <option value="cancelled">Hủy</option>
+			  <option value="refunded">Hoàn tiền</option>
+			</select>
+		  </div>
+		  
 	  </div>
 	  <div class="form-check">
 		<input name="status" type="checkbox" value="1" class="form-check-input" id="status">
