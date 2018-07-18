@@ -44,22 +44,20 @@
 			<input type="text" name="custommer_address" class="form-control" id="custommer_address" placeholder="Địa chỉ">
 		  </div>
 	  </div>
-	  <div id="product" class="row">
+	  <div class="row">
 	  	  	<div class="form-group col-4">
 				<label>Chọn sản phẩm</label>
-				<select id="product_id0" name="product_id[]" class="form-control">
-			  
+				<select id="product_id0" name="orderitems[0][product_id]" class="form-control product_id">
 				</select>
 		  	</div>
 		   <div class="form-group col-4">
 				<label>Chọn thuộc tính sản phẩm</label>
-				<select id="product_option_id0" name="product_option_id[]" class="form-control">
-				  
+				<select id="product_option_id0" name="orderitems[0][product_option_id]" class="form-control product_option_id">
 				</select>
 		  	</div>
 		  	<div class="form-group col-3">
 				<label>Số lượng</label>
-				<input id="quantity0" name="quantity[]" class="form-control" />
+				<input id="quantity0" name="orderitems[0][quantity]" class="form-control" />
 		  	</div>
 		  	<div class="form-group col-1">
 		  		<label>&nbsp;</label>
@@ -67,7 +65,30 @@
 					<div class="btn  btn-primary"><i class="fa fa-plus-circle"></i></div>
 		  		</div>
 		  	</div>
+
 	  </div>
+	  	<div class="row" id="orderitems">
+			<div class="form-group col-4">
+				<label>Chọn sản phẩm</label>
+				<select id="product_id1" name="orderitems[1][product_id]" class="form-control">
+				</select>
+		  	</div>
+		   <div class="form-group col-4">
+				<label>Chọn thuộc tính sản phẩm</label>
+				<select id="product_option_id1" name="orderitems[1][product_option_id]" class="form-control">
+				</select>
+		  	</div>
+		  	<div class="form-group col-3">
+				<label>Số lượng</label>
+				<input id="quantity1" name="orderitems[1][quantity]" class="form-control" />
+		  	</div>
+		  	<div class="form-group col-1">
+		  		<label>&nbsp;</label>
+		  		<div>
+					<div class="btn  btn-primary"><i class="fa fa-remove"></i></div>
+		  		</div>
+		  	</div>
+		</div>  	
 	   <div class="row">
 	   	  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Giảm giá</label>

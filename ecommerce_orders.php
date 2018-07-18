@@ -47,7 +47,17 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        
+        <?php 
+        /*$orderitems[0]['product_id'] = 'received';
+        $orderitems[0]['product_option_id'] = 'received1';
+        $orderitems[0]['quantity'] = 1;
+        $orderitems[1]['product_id'] = 'received2';
+        $orderitems[1]['product_option_id'] = 'received21';
+        $orderitems[1]['quantity'] = 2;
+        echo '<pre>';
+        print_r($orderitems);
+        echo '<pre>';*/
+        ?>
 		<?php require 'inc/order/list.php'; ?>
 		
 		<?php require 'inc/order/add.php'; ?>
