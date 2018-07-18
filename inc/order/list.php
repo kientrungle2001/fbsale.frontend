@@ -57,6 +57,18 @@
 	   }
 	});
 	//get products
+	var url = "http://fbsale.vn:1337/ecommerceorders/products"; // the script where you handle the form input.
+	$.ajax({
+	   type: "GET",
+	   url: url,
+	   success: function(data)
+	   {
+		  $('#product_id0').append('<option value="0">Chọn sản phẩm</option>');
+		  data.forEach(function(item,index) {
+			  $('#product_id0').append('<option value="'+item.id+'">'+item.name+'</option>');
+		  });
+	   }
+	});
 	var url = "http://fbsale.vn:1337/ecommerceorders/custommers"; // the script where you handle the form input.
 	$.ajax({
 	   type: "GET",
