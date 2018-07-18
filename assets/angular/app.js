@@ -2,47 +2,43 @@ var fbSaleApp = angular.module('fbSaleApp',[]);
 
 fbSaleApp.controller('PostController', ['$scope', function($scope) {
   $scope.title = 'Quản lý comment/inbox';
-  $scope.posts = [
-  {
-	  name: 'Su Cong Cao',
-	  content: 'Ngoài tài liệu tôi cần thầy cô dạy...',
-	  type:	'comment',
-	  avatar: 'https://graph.facebook.com/2086905601592230/picture?height=100&width=100',
-	  time: '11:36',
-	  read: false,
-	  hasPhone: false
-  },
-  {
-	  name: 'Su Cong Cao',
-	  content: 'Ngoài tài liệu tôi cần thầy cô dạy...',
-	  type:	'inbox',
-	  avatar: 'https://graph.facebook.com/2086905601592230/picture?height=100&width=100',
-	  time: '11:36',
-	  read: true,
-	  hasPhone: false
-  },
-  {
-	  name: 'Su Cong Cao',
-	  content: 'Ngoài tài liệu tôi cần thầy cô dạy...',
-	  type:	'comment',
-	  avatar: 'https://graph.facebook.com/2086905601592230/picture?height=100&width=100',
-	  time: '11:36',
-	  read: false,
-	  hasPhone: true
-  },
-  {
-	  name: 'Su Cong Cao',
-	  content: 'Ngoài tài liệu tôi cần thầy cô dạy...',
-	  type:	'inbox',
-	  avatar: 'https://graph.facebook.com/2086905601592230/picture?height=100&width=100',
-	  time: '11:36',
-	  read: true,
-	  hasPhone: true
-  }
-  ];
+  
+  setInterval(function() {
+	  jQuery.ajax({
+		  type: 'post',
+		  url: FBSALE_API_URL + '/socialposts/getComments',
+		  dataType: 'json',
+		  data: {
+			  page_ids: page_ids
+		  },
+		  success: function(resp) {
+			  $scope.posts = resp;
+			  $scope.$apply();
+		  }
+	  });
+	}, 1000);
   $scope.post = {
-	  name: 'Như Mây Trần'
-  },
+	  facebook_user_name: 'Undefined'
+  };
+  setInterval(function() {
+	  if(typeof $scope.post.id !== 'undefined') {
+		  jQuery.ajax({
+			  type: 'post',
+			  url: FBSALE_API_URL + '/socialposts/getSubComments',
+			  dataType: 'json',
+			  data: {
+				  comment_id: $scope.post.id
+			  },
+			  success: function(resp) {
+				  $scope.conversations = resp;
+				  $scope.$apply();
+			  }
+		  });
+	  }
+	}, 1000);
+  $scope.selectPost = function(post) {
+	  $scope.post = post;
+  };
   $scope.post_conversations = [
   {
 	  type: 'member',
@@ -90,3 +86,17 @@ fbSaleApp.controller('PostController', ['$scope', function($scope) {
   }
   ];
 }]);
+
+function handle_comment_reply(evt) {
+	if(evt.keyCode === 13) {
+		var content = evt.target.value;
+		evt.target.value = '';
+		jQuery.ajax({
+			url: FBSALE_API_URL + '/socialposts/postComment',
+			data: {
+				comment_id: '',
+				content: content
+			}
+		});
+	}
+}

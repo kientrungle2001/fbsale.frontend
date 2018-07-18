@@ -53,17 +53,18 @@
 					</form>
 				</div>
 				<div class="box-content">
-					<div ng-repeat="post in posts" class="activity-item border-bottom" ng-class="{'unread' : post.read == false}">
+					<div ng-repeat="post in posts" class="activity-item border-bottom" ng-class="{'unread' : post.read == false}" ng-click="selectPost(post)">
 						<div class="left-item">
 							<span class="img">
-								<img ng-src="{{post.avatar}}">
+								<img ng-src="{{post.facebook_user_avatar}}">
 							</span>
 						</div>
 						<div class="mid-item">
 							<div class="item-row item-name ellipsis ng-binding">
-							{{post.name}}
+							{{post.facebook_user_name}}
 							</div>
 							<div class="item-row item-message ellipsis ng-binding">
+								<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%" />
                             	{{post.content}}
                         	</div>
 						</div>
@@ -83,7 +84,7 @@
 			<div class="col-md-4 col-12 border-right p-0 bg-white border-bottom mh589">
 				<div class="border-bottom top-chat h45">
 					<div class="left" >
-                    	<a href="javascript:" class="ellipsis">Như Mây Trần</a>
+                    	<a href="javascript:" class="ellipsis">{{post.facebook_user_name}}</a>
                		</div>
 
                		<div class="right">
@@ -104,23 +105,27 @@
 					<p class="text-center pt-3" ng-hide="post">
 					Vui lòng chọn một hội thoại để thao tác.
 					</p>
-
 					
-					<div ng-class="{'_msg _o-msg': conversation.type=='member', '_msg _s-msg': conversation.type=='page'}" ng-repeat="conversation in post_conversations">
+					<p class="pt-3">
+					<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%"/>
+					{{post.content}}
+					</p>
+					
+					<div ng-class="{'_msg _o-msg': conversation.type=='member', '_msg _s-msg': conversation.type!='member'}" ng-repeat="conversation in conversations">
 
 			            <div  class="_msg-avr">
-			                <img ng-src="https://graph.facebook.com/1608210225983055/picture?height=100&amp;width=100" src="https://graph.facebook.com/1608210225983055/picture?height=100&amp;width=100">
+			                <img ng-src="{{conversation.facebook_user_avatar}}" src="{{conversation.facebook_user_avatar}}">
 			            </div>
 
 			            <div class="_msg-bd clearfix">
 			                <h4 class="_msg-t">
 			                    <b class="ng-scope">
-			                        <a href="javascript:" class="ng-binding">{{conversation.name}}</a> - </b>
-										{{conversation.date}}
+			                        <a href="javascript:" class="ng-binding">{{conversation.facebook_user_name}}</a> - </b>
+										{{conversation.createdAt|date:'dd/MM/yyyy'}}
 			                </h4>
 
-			                <div ng-repeat="message in conversation.messages" data-time="{{conversation.time}}" class="_msg-tx" >
-			                    <div class="_msg-ptx ng-binding">{{message.content}}</div>
+			                <div data-time="{{conversation.createdAt|date:'h:m'}}" class="_msg-tx" >
+			                    <div class="_msg-ptx ng-binding">{{conversation.content}}</div>
 			                </div>
 			                
 			            </div>
@@ -257,7 +262,7 @@
 	                    </span>
 	                </div>
 	                <!--end lable-->
-	                <textarea class="discussion-input ng-pristine ng-valid ng-isolate-scope ng-empty ng-touched" placeholder="Viết trả lời...  [Nhấn Enter để gửi]" aria-invalid="false" style=""></textarea>
+	                <textarea class="discussion-input ng-pristine ng-valid ng-isolate-scope ng-empty ng-touched" placeholder="Viết trả lời...  [Nhấn Enter để gửi]" aria-invalid="false" style="" id="commentInput" onkeyup="handle_comment_reply(event)"></textarea>
 	                <!--end textarea-->
 
 	                <div class="discussion-buttons clearfix">
