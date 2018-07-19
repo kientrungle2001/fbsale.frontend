@@ -59,11 +59,11 @@
 		  	<div class="form-group col-2">
 				<label>Giá</label>
 				<div style="height: 38px;" id="pricetext0" class="form-control"></div>
-				<input id="price1" name="orderitems[0][price]" type="hidden" />
+				<input id="price0" name="orderitems[0][price]" type="hidden" />
 		  	</div>
 		  	<div class="form-group col-1">
 				<label>Số lượng</label>
-				<input id="quantity0" name="orderitems[0][quantity]" class="form-control" />
+				<input onblur="subtotal(this, 0)" id="quantity0" name="orderitems[0][quantity]" class="form-control" />
 		  	</div>
 		  	<div class="form-group col-2">
 				<label>Thành tiền</label>
@@ -85,25 +85,27 @@
 	  </div>
 	  		
 	   <div class="row">
-	   	  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Giảm giá</label>
-			<input name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
-		  </div>
-		  <div class="form-group col-6">
+	   	 <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tổng tiền trước giảm giá</label>
 			<input type="text" name="total_before_discount" value="0" class="form-control" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
 		  </div>
-		  
+	   	  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Giảm giá</label>
+			<input onblur="discountTotal()" name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
+		  </div>
+		 
 	  </div>
 	  <div class="row">
-	   	  <div class="form-group col-6">
-			<label for="exampleInputEmail1">Thuế</label>
-			<input name="tax" type="text" class="form-control" value="0" id="tax" placeholder="Thuế">
-		  </div>
-		  <div class="form-group col-6">
+	  	   <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tổng tiền trước thuế</label>
 			<input type="text" name="total_before_tax" class="form-control" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
 		  </div>
+		  
+	   	  <div class="form-group col-6">
+			<label for="exampleInputEmail1">Thuế</label>
+			<input onblur="taxTotal()" name="tax" type="text" class="form-control" value="0" id="tax" placeholder="Thuế">
+		  </div>
+		 
 		  
 	  </div>
 	  <div class="row">
@@ -142,8 +144,44 @@
 </div>
 
 <script type="text/javascript">
+	function getTotal(){
+		var total = 0;
+		$('.subtotal').each(function(){
+			total = total + parseInt($(this).text());
+		});
+		$('#total_before_discount').val(total);
+		return total;
+	}
+	function totalBeforTax(){
+		var beforTotal = getTotal();
+		var total_before_tax = 0;
+		if(beforTotal > 0){
+			total_before_tax = beforTotal - parseInt($('#discount').val());
+			$('#total_before_tax').val(total_before_tax);
+		}
+		return total_before_tax;
+	}
+	function taxTotal(){
+		var discount = totalBeforTax();
+		var subtax = discount * parseInt($('#tax').val());
+		var tax = subtax/100;
+		var total = discount - tax;
+		$('#total').val(total);
+		return total;
+	}
+	function subtotal(that, row){
+		var quantity = $(that).val();
+		if(quantity){
+			var price = $('#price'+row).val();
+			var subtotal = quantity * price;
+			$('#subtotal'+row).text(subtotal);
+			total = getTotal();
+		}
+	}
 	function removeOrderItem(row){
 		$('#orderItem'+row).remove();
+		total = getTotal();
+		
 	}
 	var countProduct = 0;
 	function addOrderItem(){
@@ -164,11 +202,11 @@
 		  	<div class="form-group col-2">'+'\
 				<label>Giá</label>'+'\
 				<div style="height: 38px;" id="pricetext'+countProduct+'" class="form-control"></div>'+'\
-				<input id="price1" name="orderitems['+countProduct+'][price]" type="hidden" />'+'\
+				<input id="price'+countProduct+'" name="orderitems['+countProduct+'][price]" type="hidden" />'+'\
 		  	</div>'+'\
 		  	<div class="form-group col-1">'+'\
 				<label>Số lượng</label>'+'\
-				<input id="quantity'+countProduct+'" name="orderitems['+countProduct+'][quantity]" class="form-control" />'+'\
+				<input onblur="subtotal(this, '+countProduct+')" id="quantity'+countProduct+'" name="orderitems['+countProduct+'][quantity]" class="form-control" />'+'\
 		  	</div>'+'\
 		  	<div class="form-group col-2">'+'\
 				<label>Thành tiền</label>'+'\
@@ -212,11 +250,15 @@
 				  $('#pricetext'+row).text(data);
 				  var product_option_name = $(that).find('option:selected').text();
 				  $("#product_option_name"+row).val(product_option_name);
+				  var rowdom = $('#quantity'+row);
+				  subtotal(rowdom, row);
 	           }
 	        });
 		}else{
 			var productdom = $('#product_id'+row);
 			selectProduct(productdom, row);
+			var rowdom = $('#quantity'+row);
+		    subtotal(rowdom, row);
 		}
 	}
 	function selectProduct(that, row){
@@ -238,6 +280,8 @@
 				  $('#pricetext'+row).text(data.price);
 				  var product_name = $(that).find('option:selected').text();
 				  $("#product_name"+row).val(product_name);
+				  var rowdom = $('#quantity'+row);
+				  subtotal(rowdom, row);
 	           }
 	        });
 		}else{
@@ -253,7 +297,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/ecommerceorders/"; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceorders/createorder"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
