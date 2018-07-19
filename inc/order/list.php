@@ -166,14 +166,14 @@
   }
   function deleteData(id){
   	if(confirm('Bạn có muốn xóa không?')){
-	  	var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+	  	var url = "http://fbsale.vn:1337/ecommerceorders/deleteorder?id="+id; // the script where you handle the form input.
 
 	    $.ajax({
-		    type: "DELETE",
+		    type: "GET",
 		    url: url,
 		    success: function(data)
 		    {
-		        fbTable.ajax.reload();
+	            fbTable.ajax.reload();
 		    }
 		});
 	}    

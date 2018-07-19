@@ -76,7 +76,7 @@
 		  		</div>
 		  	</div>
 		  	<input name="orderitems[0][product_name]" id="product_name0" type="hidden" />
-		  	<input name="orderitems[0][product_option_name]" type="hidden" id="product_opiton_name0"  />
+		  	<input name="orderitems[0][product_option_name]" type="hidden" id="product_option_name0"  />
 
 	  </div>
 
@@ -237,7 +237,7 @@
 		  		</div>'+'\
 		  	</div>'+'\
 		  	<input name="orderitems['+countProduct+'][product_name]" id="product_name'+countProduct+'" type="hidden" />'+'\
-		  	<input name="orderitems['+countProduct+'][product_option_name]" type="hidden" id="product_opiton_name'+countProduct+'"  />'+'\
+		  	<input name="orderitems['+countProduct+'][product_option_name]" type="hidden" id="product_option_name'+countProduct+'"  />'+'\
 		</div> ';
 		$('#orderitems').append(html);
 
@@ -275,6 +275,7 @@
 	           }
 	        });
 		}else{
+			 $("#product_option_name"+row).val('');
 			var productdom = $('#product_id'+row);
 			selectProduct(productdom, row);
 			var rowdom = $('#quantity'+row);
