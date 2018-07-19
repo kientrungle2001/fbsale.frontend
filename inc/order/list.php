@@ -160,6 +160,59 @@
 		    	if(data.shipper_id.id != ''){
 					$('#shipper_id').val(data.shipper_id.id);
 		    	}
+		    	if(data.ref_order_item){
+
+		    		var orderItems = data.ref_order_item;
+		    		$('#product_id0').val(orderItems[0].product_id);
+		    		$('#product_option_id0').val(orderItems[0].product_option_id);
+		    		$('#price0').val(orderItems[0].price);
+		    		$('#pricetext0').text(orderItems[0].price);
+		    		$('#quantity0').val(orderItems[0].quantity);
+		    		var subtotal = orderItems[0].price * orderItems[0].quantity;
+		    		$('#subtotal0').text(subtotal);
+		    		$('#product_name0').val(orderItems[0].product_name);
+		    		$('#product_option_name0').val(orderItems[0].product_option_name);
+		    		
+		    		orderItems.shift();
+		    		$('#orderitems').html('');
+		    		orderItems.forEach(function(item, index) {
+
+			    		var html = '<div id="orderItem'+index+'" class="row" >'+'\
+							<div class="form-group col-3">'+'\
+								<label>Chọn sản phẩm</label>'+'\
+								<select onchange="selectProduct(this, '+index+')" id="product_id'+index+'" name="orderitems['+index+'][product_id]" class="form-control">'+'\
+								</select>'+'\
+						  	</div>'+'\
+						   <div class="form-group col-3">'+'\
+								<label>Chọn thuộc tính sản phẩm</label>'+'\
+								<select onchange="selectProductOption(this, '+index+');" id="product_option_id'+index+'" name="orderitems['+index+'][product_option_id]" class="form-control">'+'\
+								</select>'+'\
+						  	</div>'+'\
+						  	<div class="form-group col-2">'+'\
+								<label>Giá</label>'+'\
+								<div style="height: 38px;" id="pricetext'+index+'" class="form-control"></div>'+'\
+								<input id="price'+index+'" name="orderitems['+index+'][price]" type="hidden" />'+'\
+						  	</div>'+'\
+						  	<div class="form-group col-1">'+'\
+								<label>Số lượng</label>'+'\
+								<input onblur="subtotal(this, '+index+')" id="quantity'+index+'" name="orderitems['+index+'][quantity]" class="form-control" />'+'\
+						  	</div>'+'\
+						  	<div class="form-group col-2">'+'\
+								<label>Thành tiền</label>'+'\
+								<div style="height: 38px;" id="subtotal'+index+'" class="form-control subtotal"></div>'+'\
+						  	</div>'+'\
+						  	<div class="form-group col-1">'+'\
+						  		<label>&nbsp;</label>'+'\
+						  		<div>'+'\
+									<div onclick="removeOrderItem('+index+')" class="btn  btn-danger"><i class="fa fa-remove"></i></div>'+'\
+						  		</div>'+'\
+						  	</div>'+'\
+						  	<input name="orderitems['+index+'][product_name]" id="product_name'+index+'" type="hidden" />'+'\
+						  	<input name="orderitems['+index+'][product_option_name]" type="hidden" id="product_option_name'+index+'"  />'+'\
+						</div> ';
+						$('#orderitems').append(html);
+					});
+		    	}
 
 		    }
 		});
