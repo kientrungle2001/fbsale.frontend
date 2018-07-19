@@ -91,7 +91,7 @@
 		  </div>
 	   	  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Giảm giá</label>
-			<input onblur="discountTotal()" name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
+			<input onblur="totalBeforTax()" name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
 		  </div>
 		 
 	  </div>
@@ -147,9 +147,13 @@
 	function getTotal(){
 		var total = 0;
 		$('.subtotal').each(function(){
-			total = total + parseInt($(this).text());
+			var subtotal = parseInt($(this).text());
+			if(subtotal > 0){
+				total = total + subtotal;
+			}
 		});
 		$('#total_before_discount').val(total);
+		$('#total').val(total);
 		return total;
 	}
 	function totalBeforTax(){
@@ -158,15 +162,27 @@
 		if(beforTotal > 0){
 			total_before_tax = beforTotal - parseInt($('#discount').val());
 			$('#total_before_tax').val(total_before_tax);
+			$('#total').val(total_before_tax);
+			//co thue
+			var valtax = parseInt($('#tax').val());
+			if(valtax > 0){
+				var subtax = total_before_tax * valtax;
+				var tax = subtax/100;
+				total = total_before_tax - tax;
+				$('#total').val(total);
+			}	
 		}
 		return total_before_tax;
 	}
 	function taxTotal(){
-		var discount = totalBeforTax();
-		var subtax = discount * parseInt($('#tax').val());
-		var tax = subtax/100;
-		var total = discount - tax;
-		$('#total').val(total);
+		var total_before_tax = totalBeforTax();
+		var total = 0;
+		if(total_before_tax > 0){
+			var subtax = total_before_tax * parseInt($('#tax').val());
+			var tax = subtax/100;
+			total = total_before_tax - tax;
+			$('#total').val(total);
+		}	
 		return total;
 	}
 	function subtotal(that, row){
@@ -252,6 +268,8 @@
 				  $("#product_option_name"+row).val(product_option_name);
 				  var rowdom = $('#quantity'+row);
 				  subtotal(rowdom, row);
+				  totalBeforTax();
+				  taxTotal();
 	           }
 	        });
 		}else{
@@ -259,6 +277,8 @@
 			selectProduct(productdom, row);
 			var rowdom = $('#quantity'+row);
 		    subtotal(rowdom, row);
+		    totalBeforTax();
+			taxTotal();
 		}
 	}
 	function selectProduct(that, row){
@@ -282,6 +302,8 @@
 				  $("#product_name"+row).val(product_name);
 				  var rowdom = $('#quantity'+row);
 				  subtotal(rowdom, row);
+				  totalBeforTax();
+				  taxTotal();
 	           }
 	        });
 		}else{
