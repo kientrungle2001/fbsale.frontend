@@ -154,6 +154,7 @@
 		});
 		$('#total_before_discount').val(total);
 		$('#total').val(total);
+		$('#total_before_tax').val(total);
 		return total;
 	}
 	function totalBeforTax(){
@@ -196,8 +197,9 @@
 	}
 	function removeOrderItem(row){
 		$('#orderItem'+row).remove();
-		total = getTotal();
-		
+		getTotal();
+		totalBeforTax();
+		taxTotal();
 	}
 	var countProduct = 0;
 	function addOrderItem(){
