@@ -7,7 +7,7 @@ if(isset($_SESSION['user'])):
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <img style="width: 30px;" class="img-circle" src="https://graph.facebook.com/10208348587427141/picture?height=100&amp;width=100" />
+          <img style="width: 30px;" class="img-circle" src="<?php echo $_SESSION['user']['avatar']?>" />
           <span class="caret"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -25,7 +25,7 @@ if(isset($_SESSION['user'])):
             Đổi mật khẩu
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="/logout.php" class="dropdown-item">
             Đăng xuất
           </a>
           

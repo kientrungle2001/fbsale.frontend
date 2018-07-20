@@ -2,78 +2,43 @@
 
 </style>
 <div class="position-relative">
-	<div class="position-absolute menu-filter">
-		<div class="text-center filter" data-toggle="tooltip" data-placement="right" title="Bỏ lọc">
-			<span class="fa fa-undo"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Tất cả hội thoại" class="text-center filter">
-			<span class="fa fa-university"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Bình luận" class="text-center filter">
-			<span class="fa fa-comment-o"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Tin nhắn" class="text-center filter">
-			<span class="fa fa-envelope-o"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Chưa đọc" class="text-center filter">
-			<i class="fa fa-eye-slash"></i>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Có số điện thoại" class="text-center filter">
-			<i class="fa fa-phone"></i>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Không có số điện thoại" class="text-center filter">
-			<span class="fa fa-tty"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Chưa trả lời" class="text-center filter">
-			<span class="fa fa-share"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Tìm theo thời gian" class="text-center filter">
-			<span class="fa fa-clock-o"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Tìm theo nhãn" class="filter text-center">
-			<span class="fa fa-tags"></span>
-		</div>
-		<div data-toggle="tooltip" data-placement="right" title="Tìm theo bài viết" class="filter text-center">
-			<span class="fa fa-envelope-o"></span>
-		</div>	
-		
-	</div>
-	<!--end menu filter-->
+	<?php require 'filter.php'; ?>
 	<div class="position-absolute content-post">
 		<div class="row m-0"> 
 			<div class="col-md-4 col-12 border-right mh589 p-0">
 				<div class="border-bottom h45">
 					<form class="form-inline w100p"> 
 					<div style="margin-top: 1px;" class="input-group w100p"> 
-						<input name="name" class="form-control" type="search" placeholder="Tìm kiếm..." aria-label="Search"> 
+						<input name="name" class="form-control" type="search" placeholder="Tìm kiếm..." aria-label="Search" ng-model="keyword">
 						<div class="input-group-append"> 
 							<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button> 
 						</div> 
 					</div> 
 					</form>
 				</div>
+				<p class="text-center" ng-show="keyword">Từ khóa: {{keyword}}</p>
 				<div class="box-content">
-					<div ng-repeat="post in posts" class="activity-item border-bottom" ng-class="{'unread' : post.read == false}" ng-click="selectPost(post)">
+					<div ng-repeat="comment in comments" class="activity-item border-bottom" ng-class="{'unread' : comment.read == false,'active': selectedComment.id == comment.id}" ng-click="selectComment(comment)">
 						<div class="left-item">
 							<span class="img">
-								<img ng-src="{{post.facebook_user_avatar}}">
+								<img ng-src="{{comment.facebook_user_avatar}}">
 							</span>
 						</div>
 						<div class="mid-item">
 							<div class="item-row item-name ellipsis ng-binding">
-							{{post.facebook_user_name}}
+							{{comment.facebook_user_name}}
 							</div>
 							<div class="item-row item-message ellipsis ng-binding">
-								<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%" />
-                            	{{post.content}}
+								<img src="{{comment.image}}" ng-src="{{comment.image}}" ng-show="comment.image" style="width:100%" />
+                            	{{comment.content}}
                         	</div>
 						</div>
 						<div class="right-item">
-							<div class="item-row item-time ng-binding">{{post.time}}</div>
+							<div class="item-row item-time ng-binding">{{comment.time}}</div>
 							<div class="item-row item-icon">
-                            	<span class="fa fa-phone" ng-show="post.hasPhone"></span>
-								<span class="fa fa-envelope" ng-show="post.type == 'inbox'"></span>
-								<span class="fa fa-comment" ng-show="post.type == 'comment'"></span>
+                            	<span class="fa fa-phone" ng-show="comment.hasPhone"></span>
+								<span class="fa fa-envelope" ng-show="comment.type == 'inbox'"></span>
+								<span class="fa fa-comment" ng-show="comment.type == 'comment'"></span>
                         	</div>
 						</div>
 					</div>
@@ -91,7 +56,7 @@
 	                    <span data-toggle="tooltip" data-placement="bottom" title="Lọc theo người này" class="btn-action">
 	                        (1) hội thoại
 	                    </span>
-	                    <span data-toggle="tooltip" data-placement="bottom" title="Đánh dấu chưa đọc" class="btn-action">
+	                    <span data-toggle="tooltip" data-placement="bottom" title="Đánh dấu chưa đọc" class="btn-action" ng-click="setUnread()">
 	                        <i class="fa fa-thumb-tack"></i>
 	                    </span>
 	                    <span data-toggle="tooltip" data-placement="bottom" title="Thêm nhãn mới" class="btn-action">
@@ -102,13 +67,16 @@
 				</div>
 
 				<div class="chat border-bottom p-2">
-					<p class="text-center pt-3" ng-hide="post">
+					<p class="text-center pt-3" ng-hide="selectedComment.id">
 					Vui lòng chọn một hội thoại để thao tác.
 					</p>
 					
 					<p class="pt-3">
-					<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%"/>
 					{{post.content}}
+					<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%"/>
+					<hr />
+					<img src="{{selectedComment.image}}" ng-src="{{selectedComment.image}}" ng-show="selectedComment.image" style="width:100%"/>
+					{{selectedComment.content}}
 					</p>
 					
 					<div ng-class="{'_msg _o-msg': conversation.type=='member', '_msg _s-msg': conversation.type!='member'}" ng-repeat="conversation in conversations">
@@ -125,7 +93,11 @@
 			                </h4>
 
 			                <div data-time="{{conversation.createdAt|date:'h:m'}}" class="_msg-tx" >
-			                    <div class="_msg-ptx ng-binding">{{conversation.content}}</div>
+			                    <div class="_msg-ptx ng-binding">
+								<img src="{{conversation.image}}" ng-src="{{conversation.image}}" ng-show="conversation.image" style="width:100%"/>
+								{{conversation.content}}
+								
+								</div>
 			                </div>
 			                
 			            </div>
@@ -262,7 +234,7 @@
 	                    </span>
 	                </div>
 	                <!--end lable-->
-	                <textarea class="discussion-input ng-pristine ng-valid ng-isolate-scope ng-empty ng-touched" placeholder="Viết trả lời...  [Nhấn Enter để gửi]" aria-invalid="false" style="" id="commentInput" onkeyup="handle_comment_reply(event)"></textarea>
+	                <textarea class="discussion-input ng-pristine ng-valid ng-isolate-scope ng-empty ng-touched" placeholder="Viết trả lời...  [Nhấn Enter để gửi]" aria-invalid="false" style="" id="commentInput" onkeydown="handle_comment_reply(event)" onkeyup="clear_comment_reply(event)"></textarea>
 	                <!--end textarea-->
 
 	                <div class="discussion-buttons clearfix">
@@ -270,7 +242,7 @@
 	                        <span class="fa fa-file-image-o"></span> Gửi ảnh
 	                    </div>
 	                    <div class="btn-group dropup btn-quick-reply dropdown" >
-	                        <div class="discussion-button dropdown-toggle">
+	                        <div class="discussion-button dropdown-toggle" data-toggle="dropdown">
 	                            <span class="fa fa-commenting-o"></span> Trả lời nhanh
 	                        </div>
 	                        <ul class="dropdown-menu">
@@ -278,8 +250,8 @@
 	                                <a style="padding:0 5px;font-weight:500;" class="pull-right" ng-href="#!/sys/setting" href="#!/sys/setting"><i class="fa fa-cog"></i> Cài đặt</a>
 	                                <b class="pull-left">Gõ tắt = "/Số thứ tự" VD: /1</b>
 	                            </li>
-	                            <li class="scroll-quickmsg">
-	                                
+	                            <li ng-repeat="post_template in post_templates" class="scroll-quickmsg dropdown-header">
+								<a href="javascript:void(0)" ng-click="selectQuickMessage(post_template)">{{post_template.content}}</a>
 	                            </li>
 	                        </ul>
 	                    </div>
@@ -317,4 +289,36 @@
 		</div>
 	</div>
 </div>
+<?php 
+$user = $_SESSION['user'];
+?>
+<script>
+selectedComment = null;
+function handle_comment_reply(evt) {
+	if(evt.keyCode === 13) {
+		var content = evt.target.value;
+		jQuery.ajax({
+			url: FBSALE_API_URL + '/socialposts/postComment',
+			type: 'post',
+			data: {
+				user_id: <?php echo $user['id']?>,
+				facebook_id: '<?php echo $user['facebook_id']?>',
+				id: selectedComment.id,
+				facebook_post_id: selectedComment.facebook_post_id,
+				facebook_page_id: selectedPost.page_id.page_id,
+				facebook_page_token: selectedPost.page_id.page_token,
+				content: content
+			},
+			success: function(resp) {
+				console.log(resp);
+			}
+		});
+	}
+}
 
+function clear_comment_reply(evt) {
+	if(evt.keyCode === 13) {
+		evt.target.value = '';
+	}
+}
+</script>

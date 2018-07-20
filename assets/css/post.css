@@ -5,7 +5,7 @@
 	.mh589{min-height: 589px;}
 	.content-post{width: 100%; left: 50px;}
 	.filter{padding: 10px 0px; color: white; cursor: pointer;}
-	.filter:hover{background: white; color: #3b5998;}
+	.filter:hover, .filter.active{background: white; color: #3b5998;}
 	.w100p{width: 100% !important;}
 	.h45{height: 42px; line-height: 42px;}
 	.box-content{overflow-y: scroll; height: 547px;}
@@ -15,6 +15,9 @@
 	    float: left;
 	    width: 100%;
 	    padding: 5px;
+	}
+	.activity-item.active{
+		background: white;
 	}
 	.activity-item:hover{background: white;}
 	.activity-item .left-item{float: left;

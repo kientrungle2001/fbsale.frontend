@@ -1,5 +1,8 @@
 <?php require_once 'bootstrap.php'?><!DOCTYPE html>
 <?php 
+if(!isset($_SESSION['user'])) {
+	header('Location: /login.php');
+}
 $user = $_SESSION['user'];
 $facebook_page_ids = $_SESSION['facebook_page_ids'];
 $facebook_page_tokens = $_SESSION['facebook_page_tokens'];
