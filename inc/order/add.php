@@ -193,6 +193,8 @@
 			var subtotal = quantity * price;
 			$('#subtotal'+row).text(subtotal);
 			total = getTotal();
+			totalBeforTax();
+			taxTotal();
 		}
 	}
 	function removeOrderItem(row){
@@ -240,19 +242,12 @@
 		  	<input name="orderitems['+countProduct+'][product_option_name]" type="hidden" id="product_option_name'+countProduct+'"  />'+'\
 		</div> ';
 		$('#orderitems').append(html);
-
-		var url = "http://fbsale.vn:1337/ecommerceorders/products"; // the script where you handle the form input.
-		$.ajax({
-		   type: "GET",
-		   url: url,
-		   success: function(data)
-		   {
-			  $('#product_id'+countProduct).append('<option value="0">Chọn sản phẩm</option>');
-			  data.forEach(function(item,index) {
-				  $('#product_id'+countProduct).append('<option value="'+item.id+'">'+item.name+'</option>');
-			  });
-		   }
+		$('#product_id'+countProduct).append('<option value="0">Chọn sản phẩm</option>');
+		products.forEach(function(item,index) {
+			$('#product_id'+countProduct).append('<option value="'+item.id+'">'+item.name+'</option>');
 		});
+
+		
 	}
 	function selectProductOption(that, row){
 		var option_id = $(that).val();
@@ -334,9 +329,9 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+			var url = "http://fbsale.vn:1337/ecommerceorders/editorder?id="+id; // the script where you handle the form input.
 	   		 $.ajax({
-	           type: "PATCH",
+	           type: "POST",
 	           url: url,
 	           data: $("#formData").serialize(), // serializes the form's elements.
 	           success: function(data)
