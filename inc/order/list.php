@@ -64,8 +64,10 @@
 	   success: function(data)
 	   {
 		  $('#product_id0').append('<option value="0">Chọn sản phẩm</option>');
+		  products = data;
 		  data.forEach(function(item,index) {
 			  $('#product_id0').append('<option value="'+item.id+'">'+item.name+'</option>');
+
 		  });
 	   }
 	});
@@ -161,10 +163,8 @@
 					$('#shipper_id').val(data.shipper_id.id);
 		    	}
 		    	if(data.ref_order_item){
-
+		    		countProduct = data.ref_order_item.length;
 		    		var orderItems = data.ref_order_item;
-		    		$('#product_id0').val(orderItems[0].product_id);
-		    		$('#product_option_id0').val(orderItems[0].product_option_id);
 		    		$('#price0').val(orderItems[0].price);
 		    		$('#pricetext0').text(orderItems[0].price);
 		    		$('#quantity0').val(orderItems[0].quantity);
@@ -172,11 +172,31 @@
 		    		$('#subtotal0').text(subtotal);
 		    		$('#product_name0').val(orderItems[0].product_name);
 		    		$('#product_option_name0').val(orderItems[0].product_option_name);
+
+		    		var url = "http://fbsale.vn:1337/ecommerceorders/selectproduct";
+					$.ajax({
+			           type: "POST",
+			           url: url,
+			           data: {product_id: orderItems[0].product_id}, // serializes the form's elements.
+			           success: function(data)
+			           {
+			              	$('#product_option_id0').text('');
+			              	$('#product_option_id0').append('<option value="0">Chọn thuộc tính sản phẩm</option>');
+			              	if(orderItems[0].product_option_id.length > 0){
+								data.product_options.forEach(function(item,index) {
+									$('#product_option_id0').append('<option value="'+item.id+'">'+item.name+'</option>');
+								});
+			    				
+			    				$('#product_option_id0').val(orderItems[0].product_option_id);
+		    				}	
+			           }
+			        });
+		    		$('#product_id0').val(orderItems[0].product_id);
 		    		
 		    		orderItems.shift();
 		    		$('#orderitems').html('');
 		    		orderItems.forEach(function(item, index) {
-
+		    			index = index + 1;
 			    		var html = '<div id="orderItem'+index+'" class="row" >'+'\
 							<div class="form-group col-3">'+'\
 								<label>Chọn sản phẩm</label>'+'\
@@ -211,6 +231,36 @@
 						  	<input name="orderitems['+index+'][product_option_name]" type="hidden" id="product_option_name'+index+'"  />'+'\
 						</div> ';
 						$('#orderitems').append(html);
+						$('#product_id'+index).append('<option value="0">Chọn sản phẩm</option>');
+						products.forEach(function(item,key) {
+							$('#product_id'+index).append('<option value="'+item.id+'">'+item.name+'</option>');
+						});
+
+						var url = "http://fbsale.vn:1337/ecommerceorders/selectproduct";
+						$.ajax({
+				           type: "POST",
+				           url: url,
+				           data: {product_id: item.product_id}, // serializes the form's elements.
+				           success: function(data)
+				           {
+				              $('#product_option_id'+index).text('');
+				              $('#product_option_id'+index).append('<option value="0">Chọn thuộc tính sản phẩm</option>');
+							  data.product_options.forEach(function(item,key) {
+								  $('#product_option_id'+index).append('<option value="'+item.id+'">'+item.name+'</option>');
+							  });
+			    				$('#product_option_id'+index).val(item.product_option_id);
+
+				           }
+				        });
+
+						$('#product_id'+index).val(item.product_id);
+			    		$('#price'+index).val(item.price);
+			    		$('#pricetext'+index).text(item.price);
+			    		$('#quantity'+index).val(item.quantity);
+			    		var subtotal = item.price * item.quantity;
+			    		$('#subtotal'+index).text(subtotal);
+			    		$('#product_name'+index).val(item.product_name);
+			    		$('#product_option_name'+index).val(item.product_option_name);
 					});
 		    	}
 
