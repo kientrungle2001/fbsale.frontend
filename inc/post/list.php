@@ -30,7 +30,7 @@
 							</div>
 							<div class="item-row item-message ellipsis ng-binding">
 								<img src="{{comment.image}}" ng-src="{{comment.image}}" ng-show="comment.image" style="width:100%" />
-                            	{{comment.content}}
+                            	<pre>{{comment.content}}</pre>
                         	</div>
 						</div>
 						<div class="right-item">
@@ -72,11 +72,11 @@
 					</p>
 					
 					<p class="pt-3">
-					{{post.content}}
+					<pre>{{post.content}}</pre>
 					<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%"/>
 					<hr />
 					<img src="{{selectedComment.image}}" ng-src="{{selectedComment.image}}" ng-show="selectedComment.image" style="width:100%"/>
-					{{selectedComment.content}}
+					<pre>{{selectedComment.content}}</pre>
 					</p>
 					
 					<div ng-class="{'_msg _o-msg': conversation.type=='member', '_msg _s-msg': conversation.type!='member'}" ng-repeat="conversation in conversations">
@@ -95,7 +95,7 @@
 			                <div data-time="{{conversation.createdAt|date:'h:m'}}" class="_msg-tx" >
 			                    <div class="_msg-ptx ng-binding">
 								<img src="{{conversation.image}}" ng-src="{{conversation.image}}" ng-show="conversation.image" style="width:100%"/>
-								{{conversation.content}}
+								<pre>{{conversation.content}}</pre>
 								
 								</div>
 			                </div>
