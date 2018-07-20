@@ -19,6 +19,9 @@
 	.activity-item.active{
 		background: white;
 	}
+	.filter-dropdown-item.active {
+		background: #3b5998;
+	}
 	.activity-item:hover{background: white;}
 	.activity-item .left-item{float: left;
     width: 70px;
