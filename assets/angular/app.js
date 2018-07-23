@@ -1,4 +1,4 @@
-var fbSaleApp = angular.module('fbSaleApp', []);
+var fbSaleApp = angular.module('fbSaleApp', ['ngSanitize']);
 
 fbSaleApp.controller('PostController', ['$scope', '$sce', function($scope, $sce) {
   $scope.title = 'Quản lý comment/inbox';
@@ -85,6 +85,7 @@ fbSaleApp.controller('PostController', ['$scope', '$sce', function($scope, $sce)
   };
   $scope.selectComment = function(comment) {
 	  selectedComment = $scope.selectedComment = comment;
+	  
 	  selectedComment.read = 1;
 	  jQuery.ajax({
 		  type: 'PATCH',
@@ -105,9 +106,125 @@ fbSaleApp.controller('PostController', ['$scope', '$sce', function($scope, $sce)
 			  $scope.$apply();
 		  }
 	  });
+	  $scope.customer = {
+		  facebook_id: 	comment.facebook_user_id,
+		  name:			comment.facebook_user_name
+	  };
+	  if(comment.facebook_user_id !== '') {
+		  jQuery.ajax({
+			  type: 'get',
+			  url: FBSALE_API_URL + '/ecommercecustommers/find',
+			  data: {where: {
+				  facebook_id: comment.facebook_user_id
+			  }},
+			  dataType: 'json',
+			  success: function(resp) {
+				  if(resp.length) {
+					  $scope.customer = resp[0];
+				  } else {
+					  // nothing
+				  }
+			  }
+		  });
+	  } else {
+		  // nothing
+	  }
+	  $scope.products = [];
+	  $scope.map_product = {};
+	  $scope.map_product_option = {};
+	  $scope.map_product_options = {};
+	  jQuery.ajax({
+		  type: 'get',
+		  url: FBSALE_API_URL + '/ecommerceproducts/find',
+		  dataType: 'json',
+		  success: function(resp) {
+				$scope.products = resp;
+				$scope.products.forEach(function(product,index) {
+					$scope.map_product[product.id] = product;
+					$scope.map_product_options[product.id] = product.ref_product_options;
+					product.ref_product_options.forEach(function(product_option) {
+						$scope.map_product_option[product_option.id] = product_option;
+					});
+				});
+		  }
+	  });
+	  $scope.product_options = [];
+	  jQuery.ajax({
+		  type: 'get',
+		  url: FBSALE_API_URL + '/ecommerceproductoptions/find',
+		  dataType: 'json',
+		  success: function(resp) {
+				$scope.product_options = resp;
+		  }
+	  })
+	  
+	  
+	  $scope.selectAddress = function(address) {
+		  $scope.selectedAddress = address;
+	  };
+	  $scope.selectedAddress = {};
+	  $scope.order = {};
+	  $scope.order_items = [{quantity: 1}];
+	  $scope.addNewOrderItem = function() {
+		  $scope.order_items.push({quantity: 1});
+	  };
+	  $scope.removeOrderItem = function(item) {
+		  if($scope.order_items.length > 1) {
+			  for(var i = 0; i < $scope.order_items.length; i++) {
+				  if(item === $scope.order_items[i]) {
+					  $scope.order_items.splice(i, 1);
+				  }
+			  }
+		  }
+	  };
+	  $scope.selectProduct = function(order_item) {
+		  if(order_item.product_id) {
+			var product = $scope.map_product[order_item.product_id];
+			order_item.price = product.price;
+		  }
+	  };
+	  $scope.selectProductOption = function(order_item) {
+		  if(order_item.product_option_id) {
+			var product_option = $scope.map_product_option[order_item.product_option_id];
+			order_item.price = product_option.price;
+		  }
+	  };
+	  $scope.saveCustomer = function() {
+		  if($scope.customer.id) {
+			  // update
+			jQuery.ajax({
+			  type: 'PATCH',
+			  url: FBSALE_API_URL + '/ecommercecustommers/' + $scope.customer.id,
+			  data: $scope.customer,
+			  dataType: 'json',
+			  success: function(resp) {
+				  $scope.customer.isSaved = true;
+				  setTimeout(function() {
+					  $scope.customer.isSaved = false;
+				  }, 2000);
+			  }
+			});  
+		  } else {
+			  // insert
+			  jQuery.ajax({
+			  type: 'POST',
+			  url: FBSALE_API_URL + '/ecommercecustommers',
+			  data: $scope.customer,
+			  dataType: 'json',
+			  success: function(resp) {
+				  $scope.customer.isSaved = true;
+				  $scope.customer.id = resp.id;
+				  setTimeout(function() {
+					  $scope.customer.isSaved = false;
+				  }, 2000);
+			  }
+			});
+		  }
+	  }
   };
   $scope.selectQuickMessage = function(post_template) {
 	  jQuery('#commentInput').val(post_template.content);
+	  jQuery('#commentInput').focus();
   };
   $scope.setUnread = function() {
 	  if(typeof selectedComment !== 'undefined') {

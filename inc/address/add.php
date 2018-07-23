@@ -54,7 +54,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/ecommerceaddress/"; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceaddress/"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -66,7 +66,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/ecommerceaddress/"+id; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceaddress/"+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "PATCH",
 	           url: url,

@@ -38,7 +38,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/coreroles/"; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/coreroles/"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -50,7 +50,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/coreroles/"+id; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/coreroles/"+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "PATCH",
 	           url: url,

@@ -8,11 +8,11 @@ $facebook_page_ids = $_SESSION['facebook_page_ids'];
 $facebook_page_tokens = $_SESSION['facebook_page_tokens'];
 $page_ids = $_SESSION['page_ids'];
 ?>
-<html ng-app="fbSaleApp" ng-controller="PostController">
+<html>
 <head>
     <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{title}}</title>
+  <title>Quản lý comment/inbox</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -48,7 +48,7 @@ $page_ids = $_SESSION['page_ids'];
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid" ng-app="fbSaleApp" ng-controller="PostController">
 		<?php require 'inc/post/list.php'; ?>
       </div><!-- /.container-fluid -->
     </section>
@@ -94,7 +94,7 @@ $page_ids = $_SESSION['page_ids'];
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" integrity="sha256-ruP2+uorUblSeg7Tozk75u8TaSUKRCZVvNV0zRGxkRQ=" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-sanitize.min.js" integrity="sha256-FnMl43xSx3jHmcs7t2LJ3htfsCeo99XORPvzOVQN/tw=" crossorigin="anonymous"></script>
 <!-- FB Sale App -->
 <script src="/assets/angular/app.js"></script>
 
@@ -133,7 +133,7 @@ $page_ids = $_SESSION['page_ids'];
 
 setInterval(function() {
   jQuery.ajax({
-	  url: '<?php echo FBSALE_API_URL?>/socialposts/cron',
+	  url: '<?php echo FBSALE_API_URL?>/socialposts/cron2',
 	  type: 'POST',
 	  data: {
 		  page_ids: <?php echo json_encode($page_ids)?>,
@@ -146,7 +146,7 @@ setInterval(function() {
 		  console.log('Đã tải dữ liệu về database');
 	  }
   });
-}, 10000);
+}, 2000);
   
 </script>
 </body>

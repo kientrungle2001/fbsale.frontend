@@ -252,7 +252,7 @@
 	function selectProductOption(that, row){
 		var option_id = $(that).val();
 		if(option_id != 0){
-			var url = "http://fbsale.vn:1337/ecommerceorders/selectproductoption";
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/selectproductoption";
 			 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -282,7 +282,7 @@
 	function selectProduct(that, row){
 		var product_id = $(that).val();
 		if(product_id != 0){
-			var url = "http://fbsale.vn:1337/ecommerceorders/selectproduct";
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/selectproduct";
 			 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -317,7 +317,7 @@
 	$("#formData").submit(function(e) {
 		$('#collapseAdd').removeClass('show');
 		if($(this).attr('datatype') == 'add'){
-			var url = "http://fbsale.vn:1337/ecommerceorders/createorder"; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/createorder"; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,
@@ -329,7 +329,7 @@
 	        });
 		}else if($(this).attr('datatype') == 'edit'){
 			var id = $(this).attr('dataid');
-			var url = "http://fbsale.vn:1337/ecommerceorders/editorder?id="+id; // the script where you handle the form input.
+			var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/editorder?id="+id; // the script where you handle the form input.
 	   		 $.ajax({
 	           type: "POST",
 	           url: url,

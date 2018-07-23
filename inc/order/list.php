@@ -47,7 +47,7 @@
 <script>
   $(function () {
   	//get products
-	var url = "http://fbsale.vn:1337/ecommerceorders/shippers"; // the script where you handle the form input.
+	var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/shippers"; // the script where you handle the form input.
 	$.ajax({
 	   type: "GET",
 	   url: url,
@@ -59,7 +59,7 @@
 	   }
 	});
 	//get products
-	var url = "http://fbsale.vn:1337/ecommerceorders/products"; // the script where you handle the form input.
+	var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/products"; // the script where you handle the form input.
 	$.ajax({
 	   type: "GET",
 	   url: url,
@@ -73,7 +73,7 @@
 		  });
 	   }
 	});
-	var url = "http://fbsale.vn:1337/ecommerceorders/custommers"; // the script where you handle the form input.
+	var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/custommers"; // the script where you handle the form input.
 	$.ajax({
 	   type: "GET",
 	   url: url,
@@ -86,7 +86,7 @@
 	});
     fbTable = $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/ecommerceorders/datatable",
+		  "url": "<?php echo FBSALE_API_URL ?>/ecommerceorders/datatable",
 		  "type": "POST",
 		  "error": function (e) {
 		  },
@@ -132,7 +132,7 @@
   });
 
   function updateStatus(status, id){
-  		var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+  		var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "PATCH",
 		    url: url,
@@ -145,7 +145,7 @@
   }
 
   function updateState(that, id){
-  		var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+  		var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/"+id; // the script where you handle the form input.
   		var state = $(that).val();
 	    $.ajax({
 		    type: "PATCH",
@@ -169,7 +169,7 @@
   	$('#btn-submit').text('Cập nhật');
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
-  	var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+  	var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "GET",
 		    url: url,
@@ -204,7 +204,7 @@
 		    		$('#product_name0').val(orderItems[0].product_name);
 		    		$('#product_option_name0').val(orderItems[0].product_option_name);
 
-		    		var url = "http://fbsale.vn:1337/ecommerceorders/selectproduct";
+		    		var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/selectproduct";
 					$.ajax({
 			           type: "POST",
 			           url: url,
@@ -267,7 +267,7 @@
 							$('#product_id'+index).append('<option value="'+item.id+'">'+item.name+'</option>');
 						});
 
-						var url = "http://fbsale.vn:1337/ecommerceorders/selectproduct";
+						var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/selectproduct";
 						$.ajax({
 				           type: "POST",
 				           url: url,
@@ -300,7 +300,7 @@
   }
   function deleteData(id){
   	if(confirm('Bạn có muốn xóa không?')){
-	  	var url = "http://fbsale.vn:1337/ecommerceorders/deleteorder?id="+id; // the script where you handle the form input.
+	  	var url = "<?php echo FBSALE_API_URL ?>/ecommerceorders/deleteorder?id="+id; // the script where you handle the form input.
 
 	    $.ajax({
 		    type: "GET",

@@ -30,7 +30,7 @@
 							</div>
 							<div class="item-row item-message ellipsis ng-binding">
 								<img src="{{comment.image}}" ng-src="{{comment.image}}" ng-show="comment.image" style="width:100%" />
-                            	<pre>{{comment.content}}</pre>
+                            	<p ng-bind-html="comment.content"></p>
                         	</div>
 						</div>
 						<div class="right-item">
@@ -72,11 +72,11 @@
 					</p>
 					
 					<p class="pt-3">
-					<pre>{{post.content}}</pre>
+					<p ng-bind-html="post.content"></p>
 					<img src="{{post.image}}" ng-src="{{post.image}}" ng-show="post.image" style="width:100%"/>
 					<hr />
 					<img src="{{selectedComment.image}}" ng-src="{{selectedComment.image}}" ng-show="selectedComment.image" style="width:100%"/>
-					<pre>{{selectedComment.content}}</pre>
+					<p ng-bind-html="selectedComment.content"></p>
 					</p>
 					
 					<div ng-class="{'_msg _o-msg': conversation.type=='member', '_msg _s-msg': conversation.type!='member'}" ng-repeat="conversation in conversations">
@@ -95,7 +95,7 @@
 			                <div data-time="{{conversation.createdAt|date:'h:m'}}" class="_msg-tx" >
 			                    <div class="_msg-ptx ng-binding">
 								<img src="{{conversation.image}}" ng-src="{{conversation.image}}" ng-show="conversation.image" style="width:100%"/>
-								<pre>{{conversation.content}}</pre>
+								<p ng-bind-html="conversation.content"></p>
 								
 								</div>
 			                </div>
@@ -251,7 +251,7 @@
 	                                <b class="pull-left">Gõ tắt = "/Số thứ tự" VD: /1</b>
 	                            </li>
 	                            <li ng-repeat="post_template in post_templates" class="scroll-quickmsg dropdown-header">
-								<a href="javascript:void(0)" ng-click="selectQuickMessage(post_template)">{{post_template.content}}</a>
+								<a href="javascript:void(0)" ng-click="selectQuickMessage(post_template)" ng-bind-html="post_template.content"></a>
 	                            </li>
 	                        </ul>
 	                    </div>
@@ -277,11 +277,103 @@
 
 				<!-- Tab panes -->
 				<div class="tab-content">
-				  <div class="tab-pane active container p-2" id="custommer">
-				  	khách hàng
+				  <div class="tab-pane active container p-2" id="custommer" style="overflow:scroll-y">
+				  	<form id="customerForm" ng-show="customer">
+						<input type="hidden" name="facebook_id" ng-model="customer.facebook_id" />
+						<div class="form-group">
+							<input type="text" name="name" class="form-control" ng-model="customer.name" placeholder="Họ và tên" />
+						</div>
+						<div class="form-group">
+							<input type="text" name="email" class="form-control" ng-model="customer.email" placeholder="Email" />
+						</div>
+						<div class="form-group">
+							<input type="text" name="phone" class="form-control" ng-model="customer.phone" placeholder="Số điện thoại" />
+						</div>
+						<div class="form-group">
+							<label>Chọn địa chỉ</label>
+							<select name="address" ng-change="selectAddress(address)" class="form-control" ng-model="customer.address_id"  ng-options="address.id as address.name for address in customer.ref_address" placeholder="Chọn địa chỉ">
+							</select>
+						</div>
+						
+						<div class="hide">
+							<div class="form-group">
+								<input type="text" name="address_type" class="form-control" ng-model="selectedAddress.type" placeholder="Loại địa chỉ" />
+							</div>
+							<div class="form-group">
+								<input type="text" name="address_province_id" class="form-control" ng-model="selectedAddress.province_id" placeholder="Thành phố" />
+							</div>
+							<div class="form-group">
+								<input type="text" name="address_district_id" class="form-control" ng-model="selectedAddress.district_id" placeholder="Quận, huyện" />
+							</div>
+							<div class="form-group">
+								<input type="text" name="address_ward_id" class="form-control" ng-model="selectedAddress.ward_id" placeholder="Thôn, xã, đường" />
+							</div>
+							<div class="form-group">
+								<input type="text" name="address_address" class="form-control" ng-model="selectedAddress.address" placeholder="Địa chỉ" />
+							</div>
+						</div>
+						<div class="form-group">
+							<select name="status" class="form-control" ng-model="customer.status">
+								<option value="1" ng-selected="customer.status==1">Hoạt động</option>
+								<option value="0" ng-selected="customer.status==0">Không hoạt động</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary" ng-click="saveCustomer()">Lưu khách hàng</button>
+						</div>
+						<div class="alert alert-primary" ng-show="customer.id">
+							Đã tạo
+						</div>
+						<div class="alert alert-success" ng-show="customer.isSaved">
+							Đã lưu
+						</div>
+					</form>
 				  </div>
 				  <div class="tab-pane container p-2" id="order">
-				  	đơn hàng
+				  	
+					<form>
+						<div class="row" ng-repeat="order_item in order_items">
+							<div class="col-md-4">
+								<div class="form-group">
+									<select class="form-control" ng-change="selectProduct(order_item, product)" ng-model="order_item.product_id" ng-options="product.id as product.name for product in products">
+										<option value="">Chọn dịch vụ</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<select class="form-control"  ng-change="selectProductOption(order_item, product_option)" ng-model="order_item.product_option_id" ng-options="product_option.id as product_option.name for product_option in map_product_options[order_item.product_id]">
+										<option value="">Chọn thuộc tính</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<button class="btn btn-danger" ng-click="removeOrderItem(order_item)">- Xóa</button>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Số tiền</label>
+									<input class="form-control" name="price"  ng-model="order_item.price" />
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Số lượng</label>
+									<input class="form-control" name="quantity" ng-model="order_item.quantity" />
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Thành tiền</label>
+									<input class="form-control" name="total" ng-model="order_item.total = order_item.price * order_item.quantity" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary" ng-click="addNewOrderItem()">+ Thêm dịch vụ</button>
+						</div>
+					</form>
+					
 				  </div>
 				</div>
 			</div>

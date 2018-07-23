@@ -42,7 +42,7 @@
   $(function () {
     fbTable = $("#example1").DataTable({
 		ajax: {
-		  "url": "http://fbsale.vn:1337/coresettings/datatable",
+		  "url": "<?php echo FBSALE_API_URL ?>/coresettings/datatable",
 		  "type": "POST",
 		  "error": function (e) {
 		  },
@@ -70,7 +70,7 @@
   });
 
   function updateStatus(status, id){
-  		var url = "http://fbsale.vn:1337/coresettings/"+id; // the script where you handle the form input.
+  		var url = "<?php echo FBSALE_API_URL ?>/coresettings/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "PATCH",
 		    url: url,
@@ -94,7 +94,7 @@
   	$('#btn-submit').text('Thêm mới');
   	$('#formData').attr('datatype', 'edit');
   	$('#formData').attr('dataid', id);
-  	var url = "http://fbsale.vn:1337/coresettings/"+id; // the script where you handle the form input.
+  	var url = "<?php echo FBSALE_API_URL ?>/coresettings/"+id; // the script where you handle the form input.
 	    $.ajax({
 		    type: "GET",
 		    url: url,
@@ -117,7 +117,7 @@
   }
   function deleteData(id){
   	if(confirm('Bạn có muốn xóa không?')){
-	  	var url = "http://fbsale.vn:1337/coresettings/"+id; // the script where you handle the form input.
+	  	var url = "<?php echo FBSALE_API_URL ?>/coresettings/"+id; // the script where you handle the form input.
 
 	    $.ajax({
 		    type: "DELETE",
