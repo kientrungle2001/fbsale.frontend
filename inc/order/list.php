@@ -12,6 +12,7 @@
 		  <th>Email</th>
 		  <th>Phone</th>
 		  <th>Tổng tiền</th>
+		  <th>Trạng thái đơn hàng</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -25,6 +26,7 @@
 		  <th>Email</th>
 		  <th>Phone</th>
 		  <th>Tổng tiền</th>
+		  <th>Trạng thái đơn hàng</th>
 		  <th>Trạng thái</th>
 		  <th>Hành động</th>
 		</tr>
@@ -98,7 +100,22 @@
 			{data: 'custommer_email'},
 			{data: 'custommer_phone'},
 			{data: 'total'},
-			
+			{data: function(row, type, val, meta){
+				var html = '<select onchange="updateState(this, '+row.id+')" id="state'+row.id+'" name="state" class="form-control">'+'\
+				  <option value="received">Đã nhận</option>'+'\
+				  <option value="processing">Đang xử lí</option>'+'\
+				  <option value="shipping">Đang vận chuyển</option>'+'\
+				  <option value="waitpay">Chờ thanh toán</option>'+'\
+				  <option value="completed">Thành công</option>'+'\
+				  <option value="cancelled">Hủy</option>'+'\
+				  <option value="refunded">Hoàn tiền</option>'+'\
+				</select>'+'\
+				<script>'+'\
+				$("#state'+row.id+'").val("'+row.state+'");'+'\
+				<\/script>';
+				return html;
+				
+			}},
 			{ data: function(row, type, val, meta){
 				if(row.status == 1){
 					return '<i class="fa fa-star" style="color: blue; font-size: 120%; cursor: pointer;" onclick="updateStatus(0, '+row.id+');"></i>';
@@ -108,7 +125,7 @@
 				
 			} },
 			{ data : function ( row, type, val, meta ){
-				return '<a class="btn btn-primary" href="/ecommerce_order_items.php?orderId='+row.id+'"><i class="fa fa-eye"></i></a> '+'<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>' +' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
+				return '<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>' +' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
 			}},
 		]
 	});
@@ -120,6 +137,20 @@
 		    type: "PATCH",
 		    url: url,
 		    data: {status, status}, // serializes the form's elements.
+           success: function(data)
+           {
+               fbTable.ajax.reload();
+           }
+		});
+  }
+
+  function updateState(that, id){
+  		var url = "http://fbsale.vn:1337/ecommerceorders/"+id; // the script where you handle the form input.
+  		var state = $(that).val();
+	    $.ajax({
+		    type: "PATCH",
+		    url: url,
+		    data: {state, state}, // serializes the form's elements.
            success: function(data)
            {
                fbTable.ajax.reload();
