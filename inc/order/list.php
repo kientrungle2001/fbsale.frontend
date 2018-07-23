@@ -125,7 +125,7 @@
 				
 			} },
 			{ data : function ( row, type, val, meta ){
-				return '<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>' +' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
+				return '<a href="/ecommerce_order_detail.php?id='+row.id+'" class="btn btn-primary"><i class="fa fa-eye"></i></a>' +' <button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>' +' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
 			}},
 		]
 	});
