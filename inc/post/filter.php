@@ -29,7 +29,7 @@
 	<div data-toggle="tooltip" data-placement="right" title="Tìm theo nhãn" class="filter text-center dropdown">
 		<span class="fa fa-tags dropdown-toggle" data-toggle="dropdown"></span>
 		<div class="dropdown-menu" style="width: 200px; padding: 10px;">
-			<div ng-repeat="label in post_labels" style="padding: 5px;margin-top:5px; margin-bottom:5px;" class="filter-dropdown-item" ng-class="{'active': filter.post_label_ids[label.id]}" ng-click="filter.post_label_ids[label.id]=!filter.post_label_ids[label.id]">
+			<div ng-repeat="label in post_labels" style="padding: 5px;margin-top:5px; margin-bottom:5px;" class="filter-dropdown-item" ng-class="{'active': filter.post_label_ids['label_'+label.id]}" ng-click="filter.post_label_ids['label_'+label.id]=!filter.post_label_ids['label_'+label.id]">
 				<p style="background: #{{label.color}}; color: #fff; padding: 5px; margin: 0;">{{label.name|limitTo:100}}</p>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 			<div ng-repeat="pagePost in posts" style="padding: 15px;margin-top:5px; margin-bottom:5px;" class="media filter-dropdown-item" ng-class="{'active': filter.post_ids[pagePost.id]}" ng-click="filter.post_ids[pagePost.id]=!filter.post_ids[pagePost.id]">
 				<img src="{{pagePost.image}}" ng-src="{{pagePost.image}}" ng-show="pagePost.image" style="width:64px" class="align-self-start mr-3"/>
 				<div class="media-body">
-					<pre>{{pagePost.content|limitTo:100}}</pre>
+					<p ng-bind-html="pagePost.content|limitTo:100"></p>
 				</div>
 			</div>
 		</div>
