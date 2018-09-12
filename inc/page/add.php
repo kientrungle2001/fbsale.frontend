@@ -11,19 +11,19 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên trang</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên menu">
 		  </div>
 		  
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Facebook id</label>
-			<input name="facebook_id" type="text" class="form-control" id="facebook_id" placeholder="Facebook id">
+			<input name="facebook_id" type="text" class="form-control form-control-sm" id="facebook_id" placeholder="Facebook id">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Page id</label>
-			<input type="text" name="page_id" class="form-control" id="page_id" placeholder="Page id">
+			<input type="text" name="page_id" class="form-control form-control-sm" id="page_id" placeholder="Page id">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -34,7 +34,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

@@ -30,11 +30,11 @@
 
       <form action="<?php echo FBSALE_API_URL . '/userLogin'; ?>" method="post">
         <div class="form-group has-feedback">
-          <input name="username" type="text" class="form-control" placeholder="Tên đăng nhập">
+          <input name="username" type="text" class="form-control form-control-sm" placeholder="Tên đăng nhập">
           <span class="fa fa-envelope form-control-feedback hide"></span>
         </div>
         <div class="form-group has-feedback">
-          <input name="password" type="password" class="form-control" placeholder="Mật khẩu">
+          <input name="password" type="password" class="form-control form-control-sm" placeholder="Mật khẩu">
           <span class="fa fa-lock form-control-feedback hide"></span>
         </div>
         <div class="row">

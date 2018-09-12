@@ -11,23 +11,23 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên menu">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Email</label>
-			<input name="email" type="text" class="form-control" id="email" placeholder="Email">
+			<input name="email" type="text" class="form-control form-control-sm" id="email" placeholder="Email">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Phone</label>
-			<input name="phone" type="text" class="form-control" id="phone" placeholder="Phone">
+			<input name="phone" type="text" class="form-control form-control-sm" id="phone" placeholder="Phone">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Type</label>
-			<input type="text" name="type" class="form-control" id="type" placeholder="Type">
+			<input type="text" name="type" class="form-control form-control-sm" id="type" placeholder="Type">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -38,7 +38,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

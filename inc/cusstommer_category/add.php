@@ -11,23 +11,23 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên menu</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên menu">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Đường dẫn</label>
-			<input name="url" type="text" class="form-control" id="url" placeholder="Tên đăng nhập">
+			<input name="url" type="text" class="form-control form-control-sm" id="url" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Controller</label>
-			<input name="controller" type="text" class="form-control" id="controller" placeholder="Họ và tên">
+			<input name="controller" type="text" class="form-control form-control-sm" id="controller" placeholder="Họ và tên">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Action</label>
-			<input type="text" name="action" class="form-control" id="action" placeholder="Tên đăng nhập">
+			<input type="text" name="action" class="form-control form-control-sm" id="action" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -38,7 +38,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

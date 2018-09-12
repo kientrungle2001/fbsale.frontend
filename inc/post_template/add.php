@@ -11,11 +11,11 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Nhãn">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Nhãn">
 		  </div>
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Type</label>
-			<input name="type" type="text" class="form-control" id="type" value=""/>
+			<input name="type" type="text" class="form-control form-control-sm" id="type" value=""/>
 		  </div>
 		  
 	  </div>
@@ -33,7 +33,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

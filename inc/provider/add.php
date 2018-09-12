@@ -11,7 +11,7 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên nhà cung cấp</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên menu">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên menu">
 		  </div>
 		  
 		 
@@ -25,7 +25,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

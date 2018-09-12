@@ -11,23 +11,23 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Khách hàng</label>
-			<input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Khách hàng">
+			<input name="custommer_name" type="text" class="form-control form-control-sm" id="custommer_name" placeholder="Khách hàng">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Email</label>
-			<input name="custommer_email" type="email" class="form-control" id="custommer_email" placeholder="Email">
+			<input name="custommer_email" type="email" class="form-control form-control-sm" id="custommer_email" placeholder="Email">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Phone</label>
-			<input name="custommer_phone" type="text" class="form-control" id="custommer_phone" placeholder="Phone">
+			<input name="custommer_phone" type="text" class="form-control form-control-sm" id="custommer_phone" placeholder="Phone">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tông tiền</label>
-			<input type="text" name="total" class="form-control" id="total" placeholder="Toongr tiền">
+			<input type="text" name="total" class="form-control form-control-sm" id="total" placeholder="Toongr tiền">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -38,7 +38,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

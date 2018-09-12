@@ -11,13 +11,13 @@
 		<div class="row">
 		  <div class="form-group col-6">
 			<label>Chọn khách hàng</label>
-			<select id="custommer_id" name="custommer_id" class="form-control">
+			<select id="custommer_id" name="custommer_id" class="form-control form-control-sm">
 			  
 			</select>
 		  </div>
 		   <div class="form-group col-6">
 			<label>Chọn shipper</label>
-			<select id="shipper_id" name="shipper_id" class="form-control">
+			<select id="shipper_id" name="shipper_id" class="form-control form-control-sm">
 			  
 			</select>
 		  </div>
@@ -25,45 +25,45 @@
 	    <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên khách hàng</label>
-			<input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Tên khách hàng">
+			<input name="custommer_name" type="text" class="form-control form-control-sm" id="custommer_name" placeholder="Tên khách hàng">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Email</label>
-			<input name="custommer_email" type="email" class="form-control" id="custommer_email" placeholder="Email">
+			<input name="custommer_email" type="email" class="form-control form-control-sm" id="custommer_email" placeholder="Email">
 		  </div>
 	    </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Phone</label>
-			<input name="custommer_phone" type="text" class="form-control" id="custommer_phone" placeholder="Phone">
+			<input name="custommer_phone" type="text" class="form-control form-control-sm" id="custommer_phone" placeholder="Phone">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Địa chỉ</label>
-			<input type="text" name="custommer_address" class="form-control" id="custommer_address" placeholder="Địa chỉ">
+			<input type="text" name="custommer_address" class="form-control form-control-sm" id="custommer_address" placeholder="Địa chỉ">
 		  </div>
 	  </div>
 
 	  <div class="row">
 	  	  	<div class="form-group col-3">
 				<label>Chọn sản phẩm</label>
-				<select onchange="selectProduct(this, 0);" id="product_id0" name="orderitems[0][product_id]" class="form-control">
+				<select onchange="selectProduct(this, 0);" id="product_id0" name="orderitems[0][product_id]" class="form-control form-control-sm">
 				</select>
 		  	</div>
 		   <div class="form-group col-3">
 				<label>Chọn thuộc tính sản phẩm</label>
-				<select onchange="selectProductOption(this, 0);" id="product_option_id0" name="orderitems[0][product_option_id]" class="form-control">
+				<select onchange="selectProductOption(this, 0);" id="product_option_id0" name="orderitems[0][product_option_id]" class="form-control form-control-sm">
 				</select>
 		  	</div>
 		  	<div class="form-group col-2">
 				<label>Giá</label>
-				<div style="height: 38px;" id="pricetext0" class="form-control"></div>
+				<div style="height: 38px;" id="pricetext0" class="form-control form-control-sm"></div>
 				<input id="price0" name="orderitems[0][price]" type="hidden" />
 		  	</div>
 		  	<div class="form-group col-1">
 				<label>Số lượng</label>
-				<input onblur="subtotal(this, 0)" id="quantity0" name="orderitems[0][quantity]" class="form-control" />
+				<input onblur="subtotal(this, 0)" id="quantity0" name="orderitems[0][quantity]" class="form-control form-control-sm" />
 		  	</div>
 		  	<div class="form-group col-2">
 				<label>Thành tiền</label>
@@ -87,23 +87,23 @@
 	   <div class="row">
 	   	 <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tổng tiền trước giảm giá</label>
-			<input type="text" name="total_before_discount" value="0" class="form-control" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
+			<input type="text" name="total_before_discount" value="0" class="form-control form-control-sm" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
 		  </div>
 	   	  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Giảm giá</label>
-			<input onblur="totalBeforTax()" name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
+			<input onblur="totalBeforTax()" name="discount" type="text" class="form-control form-control-sm" value="0" id="discount" placeholder="Giảm giá">
 		  </div>
 		 
 	  </div>
 	  <div class="row">
 	  	   <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tổng tiền trước thuế</label>
-			<input type="text" name="total_before_tax" class="form-control" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
+			<input type="text" name="total_before_tax" class="form-control form-control-sm" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
 		  </div>
 		  
 	   	  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Thuế</label>
-			<input onblur="taxTotal()" name="tax" type="text" class="form-control" value="0" id="tax" placeholder="Thuế">
+			<input onblur="taxTotal()" name="tax" type="text" class="form-control form-control-sm" value="0" id="tax" placeholder="Thuế">
 		  </div>
 		 
 		  
@@ -111,11 +111,11 @@
 	  <div class="row">
 	   	  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tổng tiền</label>
-			<input name="total" type="text" class="form-control" id="total" value="0" placeholder="Tổng tiền">
+			<input name="total" type="text" class="form-control form-control-sm" id="total" value="0" placeholder="Tổng tiền">
 		  </div>
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Trạng thái đơn hàng</label>
-			<select id="state" name="state" class="form-control">
+			<select id="state" name="state" class="form-control form-control-sm">
 			  <option value="received">Đã nhận</option>
 			  <option value="processing">Đang xử lí</option>
 			  <option value="shipping">Đang vận chuyển</option>
@@ -135,7 +135,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>
@@ -211,22 +211,22 @@
 		var html = '<div id="orderItem'+countProduct+'" class="row" >'+'\
 		<div class="form-group col-3">'+'\
 				<label>Chọn sản phẩm</label>'+'\
-				<select onchange="selectProduct(this, '+countProduct+')" id="product_id'+countProduct+'" name="orderitems['+countProduct+'][product_id]" class="form-control">'+'\
+				<select onchange="selectProduct(this, '+countProduct+')" id="product_id'+countProduct+'" name="orderitems['+countProduct+'][product_id]" class="form-control form-control-sm">'+'\
 				</select>'+'\
 		  	</div>'+'\
 		   <div class="form-group col-3">'+'\
 				<label>Chọn thuộc tính sản phẩm</label>'+'\
-				<select onchange="selectProductOption(this, '+countProduct+');" id="product_option_id'+countProduct+'" name="orderitems['+countProduct+'][product_option_id]" class="form-control">'+'\
+				<select onchange="selectProductOption(this, '+countProduct+');" id="product_option_id'+countProduct+'" name="orderitems['+countProduct+'][product_option_id]" class="form-control form-control-sm">'+'\
 				</select>'+'\
 		  	</div>'+'\
 		  	<div class="form-group col-2">'+'\
 				<label>Giá</label>'+'\
-				<div style="height: 38px;" id="pricetext'+countProduct+'" class="form-control"></div>'+'\
+				<div style="height: 38px;" id="pricetext'+countProduct+'" class="form-control form-control-sm"></div>'+'\
 				<input id="price'+countProduct+'" name="orderitems['+countProduct+'][price]" type="hidden" />'+'\
 		  	</div>'+'\
 		  	<div class="form-group col-1">'+'\
 				<label>Số lượng</label>'+'\
-				<input onblur="subtotal(this, '+countProduct+')" id="quantity'+countProduct+'" name="orderitems['+countProduct+'][quantity]" class="form-control" />'+'\
+				<input onblur="subtotal(this, '+countProduct+')" id="quantity'+countProduct+'" name="orderitems['+countProduct+'][quantity]" class="form-control form-control-sm" />'+'\
 		  	</div>'+'\
 		  	<div class="form-group col-2">'+'\
 				<label>Thành tiền</label>'+'\

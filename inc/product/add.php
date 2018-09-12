@@ -11,23 +11,23 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Giá</label>
-			<input name="price" type="text" class="form-control" id="price" placeholder="Giá">
+			<input name="price" type="text" class="form-control form-control-sm" id="price" placeholder="Giá">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Số lượng</label>
-			<input name="quantity" type="text" class="form-control" id="quantity" placeholder="Số lượng">
+			<input name="quantity" type="text" class="form-control form-control-sm" id="quantity" placeholder="Số lượng">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Type</label>
-			<input type="text" name="type" class="form-control" id="type" placeholder="Tên đăng nhập">
+			<input type="text" name="type" class="form-control form-control-sm" id="type" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -38,7 +38,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

@@ -4,7 +4,7 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-	  <table id="example1" class="table table-bordered table-striped">
+	  <table id="example1" class="table table-sm table-bordered table-striped">
 		<thead>
 		<tr>
 		  <th>ID</th>
@@ -36,10 +36,10 @@
 	<!-- /.card-body -->
 	
 	<div class="card-footer">
-	  <a onclick="addData()" href="#collapseAdd" class="btn btn-primary" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseAdd">Thêm mới</a>
-	  <button type="submit" class="btn btn-primary">Xuất dữ liệu</button>
-	  <button type="submit" class="btn btn-primary">Nhập dữ liệu</button>
-	  <button type="submit" class="btn btn-danger">Xóa</button>
+	  <a onclick="addData()" href="#collapseAdd" class="btn btn-primary btn-sm" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseAdd">Thêm mới</a>
+	  <button type="submit" class="btn btn-primary btn-sm">Xuất dữ liệu</button>
+	  <button type="submit" class="btn btn-primary btn-sm">Nhập dữ liệu</button>
+	  <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
 	</div>
   </div>
   
@@ -78,7 +78,7 @@
 				
 			} },
 			{ data : function ( row, type, val, meta ){
-				return '<button onclick="editData('+row.id+')" class="btn btn-primary"><i class="fa fa-edit"></i></button>'+' <button onclick="deleteData('+row.id+')" class="btn btn-danger"><i class="fa fa-remove"></i></button>';
+				return '<button onclick="editData('+row.id+')" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>'+' <button onclick="deleteData('+row.id+')" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>';
 			}},
 		],
 

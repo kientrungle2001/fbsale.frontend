@@ -11,12 +11,12 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="key">Khóa</label>
-			<input name="key" type="text" class="form-control" id="key" placeholder="Khóa">
+			<input name="key" type="text" class="form-control form-control-sm" id="key" placeholder="Khóa">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="value">Giá trị</label>
-			<input name="value" type="text" class="form-control" id="value" value=""/>
+			<input name="value" type="text" class="form-control form-control-sm" id="value" value=""/>
 		  </div>
 	  </div>
 	  <div class="form-check">
@@ -27,7 +27,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

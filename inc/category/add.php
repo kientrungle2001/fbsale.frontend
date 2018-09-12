@@ -11,14 +11,14 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên danh mục</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên">
 		  </div>
 		  
 	  </div>
 	  <div class="row">
 		<div class="form-group col-6">
 			<label for="exampleInputEmail1">Danh mục cha</label>
-			<select class="form-control" id="exampleInputEmail1" placeholder="Danh mục cha">
+			<select class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Danh mục cha">
 				<option value="">Chọn danh mục</option>
 			</select>
 		</div>
@@ -31,7 +31,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

@@ -73,23 +73,23 @@
                 <div class="row">
                 <div class="form-group col-6">
                 <label for="exampleInputEmail1">Tên khách hàng</label>
-                <input name="custommer_name" type="text" class="form-control" id="custommer_name" placeholder="Tên khách hàng">
+                <input name="custommer_name" type="text" class="form-control form-control-sm" id="custommer_name" placeholder="Tên khách hàng">
                 </div>
                 
                 <div class="form-group col-6">
                 <label for="exampleInputEmail1">Email</label>
-                <input name="custommer_email" type="email" class="form-control" id="custommer_email" placeholder="Email">
+                <input name="custommer_email" type="email" class="form-control form-control-sm" id="custommer_email" placeholder="Email">
                 </div>
                 </div>
               <div class="row">
                 <div class="form-group col-6">
                 <label for="exampleInputEmail1">Phone</label>
-                <input name="custommer_phone" type="text" class="form-control" id="custommer_phone" placeholder="Phone">
+                <input name="custommer_phone" type="text" class="form-control form-control-sm" id="custommer_phone" placeholder="Phone">
                 </div>
                 
                 <div class="form-group col-6">
                 <label for="exampleInputEmail1">Địa chỉ</label>
-                <input type="text" name="custommer_address" class="form-control" id="custommer_address" placeholder="Địa chỉ">
+                <input type="text" name="custommer_address" class="form-control form-control-sm" id="custommer_address" placeholder="Địa chỉ">
                 </div>
               </div>
               <p><b>Shipper:</b> <span id="shipper"></span></p>
@@ -102,23 +102,23 @@
                <div class="row">
                  <div class="form-group col-6">
                 <label for="exampleInputEmail1">Tổng tiền trước giảm giá</label>
-                <input type="text" name="total_before_discount" value="0" class="form-control" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
+                <input type="text" name="total_before_discount" value="0" class="form-control form-control-sm" id="total_before_discount" placeholder="Tổng tiền trước giảm giá">
                 </div>
                   <div class="form-group col-6">
                 <label for="exampleInputEmail1">Giảm giá</label>
-                <input name="discount" type="text" class="form-control" value="0" id="discount" placeholder="Giảm giá">
+                <input name="discount" type="text" class="form-control form-control-sm" value="0" id="discount" placeholder="Giảm giá">
                 </div>
                
               </div>
               <div class="row">
                    <div class="form-group col-6">
                 <label for="exampleInputEmail1">Tổng tiền trước thuế</label>
-                <input type="text" name="total_before_tax" class="form-control" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
+                <input type="text" name="total_before_tax" class="form-control form-control-sm" value="0" id="total_before_tax" placeholder="Tổng tiền trước thuế">
                 </div>
                 
                   <div class="form-group col-6">
                 <label for="exampleInputEmail1">Thuế</label>
-                <input  name="tax" type="text" class="form-control" value="0" id="tax" placeholder="Thuế">
+                <input  name="tax" type="text" class="form-control form-control-sm" value="0" id="tax" placeholder="Thuế">
                 </div>
                
                 
@@ -126,11 +126,11 @@
               <div class="row">
                   <div class="form-group col-6">
                 <label for="exampleInputEmail1">Tổng tiền</label>
-                <input name="total" type="text" class="form-control" id="total" value="0" placeholder="Tổng tiền">
+                <input name="total" type="text" class="form-control form-control-sm" id="total" value="0" placeholder="Tổng tiền">
                 </div>
                 <div class="form-group col-6">
                 <label for="exampleInputEmail1">Trạng thái đơn hàng</label>
-                <select id="state" name="state" class="form-control">
+                <select id="state" name="state" class="form-control form-control-sm">
                   <option value="received">Đã nhận</option>
                   <option value="processing">Đang xử lí</option>
                   <option value="shipping">Đang vận chuyển</option>
@@ -170,7 +170,7 @@
                       
                    
                       var orderItems = data.ref_order_item;
-                      var html = '<table class="table table-hover table-bordered">'+'\
+                      var html = '<table class="table table-sm table-hover table-bordered">'+'\
                         <tr>'+'\
                           <th>Tên sản phẩm'+'\
                           </th>'+'\

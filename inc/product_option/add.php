@@ -11,7 +11,7 @@
 	  	<div class="row">
 		 <div class="form-group col-4">
 			<label>Chọn Sản phẩm</label>
-			<select id="product_id" name="product_id" class="form-control">
+			<select id="product_id" name="product_id" class="form-control form-control-sm">
 			  
 			</select>
 		  </div>
@@ -20,12 +20,12 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên</label>
-			<input name="name" type="text" class="form-control" id="name" placeholder="Tên">
+			<input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Tên">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Giá</label>
-			<input name="price" type="text" class="form-control" id="price" placeholder="Price">
+			<input name="price" type="text" class="form-control form-control-sm" id="price" placeholder="Price">
 		  </div>
 	  </div>
 	  
@@ -37,7 +37,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	  <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

@@ -11,39 +11,39 @@
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Họ và Tên</label>
-			<input id="name" name="name" type="text" class="form-control" placeholder="Họ và tên">
+			<input id="name" name="name" type="text" class="form-control form-control-sm" placeholder="Họ và tên">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputEmail1">Tên đăng nhập</label>
-			<input id="username" name="username" type="text" class="form-control" placeholder="Tên đăng nhập">
+			<input id="username" name="username" type="text" class="form-control form-control-sm" placeholder="Tên đăng nhập">
 		  </div>
 	  </div>
 	  <div class="row">
 		  <div class="form-group col-6">
 			<label for="exampleInputPassword1">Mật khẩu</label>
-			<input id=password name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu">
+			<input id=password name="password" type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Mật khẩu">
 		  </div>
 		  
 		  <div class="form-group col-6">
 			<label for="exampleInputPassword1">Xác nhận mật khẩu</label>
-			<input name="repassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu">
+			<input name="repassword" type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Mật khẩu">
 		  </div>
 	  </div>
 	<div class="row">
 	  <div class="form-group col-4">
 		<label for="exampleInputEmail1">Email</label>
-		<input id="email" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+		<input id="email" name="email" type="email" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Email">
 	  </div>
 	  
 	  <div class="form-group col-4">
 		<label for="exampleInputEmail1">Số điện thoại</label>
-		<input id="phone" name="phone" type="text" class="form-control" placeholder="Số điện thoại">
+		<input id="phone" name="phone" type="text" class="form-control form-control-sm" placeholder="Số điện thoại">
 	  </div>
 	  
 	  <div class="form-group col-4">
 		<label>Giới tính</label>
-		<select id="gender" name="gender" class="form-control">
+		<select id="gender" name="gender" class="form-control form-control-sm">
 		  <option value="0">Chưa xác định</option>
 		  <option value="1">Nam</option>
 		  <option value="-1">Nữ</option>
@@ -53,7 +53,7 @@
 	<div class="row">
 		 <div class="form-group col-4">
 			<label>Chọn quyền</label>
-			<select id="role_id" name="role_id" class="form-control">
+			<select id="role_id" name="role_id" class="form-control form-control-sm">
 			  
 			</select>
 		  </div>
@@ -67,7 +67,7 @@
 	<!-- /.card-body -->
 
 	<div class="card-footer">
-	  <button id="btn-submit" type="submit" class="btn btn-primary">Thêm mới</button>
+	  <button id="btn-submit" type="submit" class="btn btn-primary btn-sm">Thêm mới</button>
 	   <div onclick="closeForm();" class="btn btn-danger pull-right">Đóng</div>
 	</div>
   </form>

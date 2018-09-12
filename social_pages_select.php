@@ -59,7 +59,7 @@
 		Click vào trang cần quản lý để lựa chọn
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
       </div>
     </div>
   </div>
